@@ -1,0 +1,40 @@
+﻿@model TrustSystems3.CompanyWeb.Models.WizardSendfromInvitesModel
+@{
+    ViewBag.Title = "SendFrom";
+}
+
+<h1>Invite your customers</h1>
+
+<div class="btn-group" role="group" aria-label="...">
+    @Html.ActionLink("Add Invites", "Add", "WizardAddInvites", null, new { @class = "btn btn-info" })
+    <button type="button" class="btn btn-primary">Send from</button>
+    <button type="button" class="btn btn-default">Select template</button>
+    <button type="button" class="btn btn-default">Done</button>
+</div>
+
+<h2>Sender Information</h2>
+<p>
+    Please set up your Sender Information below. The Sender Name and Sender Email are what appears in your customers'
+    inboxes when they receive your invitation. The Reply-to Email is the address you want your customers to use in
+    reply to your invitation. Need Help?
+</p>
+
+<br />
+
+@using (Html.BeginForm("SendFrom", "WizardAddInvites", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.SendFrom)
+        @Html.TextBoxFor(m => m.SendFrom, new { @class = "form-control", @placeholder = "Enter name" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReplyTo)
+        @Html.TextBoxFor(m => m.ReplyTo, new { @class = "form-control", @placeholder = "Enter email" })
+    </div>
+
+    <br />
+
+    @Html.ActionLink("Back", "Add", "WizardAddInvites", null, new { @class = "btn btn-warning", @name = "BtnPrevious" })
+    <input type="submit" name="BtnNext" class="btn btn-primary btn_send_from" value="Continue" />
+}

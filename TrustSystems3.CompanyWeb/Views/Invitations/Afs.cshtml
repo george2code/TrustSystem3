@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Afs";
+}
+
+<h1 class="title">Automatic Feedback Service</h1>
+<p>
+    Configure your webshop or mail system to send an extra copy or BCC (blind carbon copy) of your order
+    confirmation email to the below address.
+</p>
+<div class="alert alert-warning" role="alert">
+    Please click update below to confirm the new AFS setup and
+    reveal your new AFS email address.
+</div>
+<p>
+    Important! Never place your AFS email address in the "cc:" or the "To:" fields when you email your customers.
+    It's confidential and should not be seen by your customers
+</p>
+<br />
+
+
+<h1 class="title">Sender Information</h1>
+<p>
+    Please set up your Sender Information below. The Sender Name and Sender Email are what appears in your
+    customers' inboxes when they receive your invitation. The Reply-to Email is the address you want your
+    customers to use in reply to your invitation
+</p>
+<br />
+
+
+<label>Sender Name</label>
+<input type="text" class="form-control" placeholder="Name (required)" />
+<br />
+<label>Reply-to Email</label>
+<input type="text" class="form-control" placeholder="Email (required)" />
+<br />
+
+<label>Sender Email</label>
+<div class="radio">
+    <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Send from noreply.invitations@trustpilot.com (no further setup required)
+    </label>
+</div>
+<div class="radio">
+    <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Send using your own email domain for the sender address (requires technical knowledge to set up)
+    </label>
+</div>
+<br />
+
+
+<h1 class="title">Domains that trigger invitations</h1>
+<p>By default, AFS will accept emails sent from the following domains:</p>
+<ul>
+    <li>* vacuum-shop.ru</li>
+</ul>
+
+<br />
+<br />
+<input type="button" class="btn btn-primary" value="Update to reveal AFS email address" />
+<br />
+<br />
+

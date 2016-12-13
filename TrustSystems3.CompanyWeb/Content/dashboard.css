@@ -1,0 +1,263 @@
+﻿p { font-size: 14px;}
+table { font-size: 14px;}
+
+.list-group a {text-decoration: none; line-height: 30px;}
+.list-group a span {font-size: 24px; float: left;}
+.list-group a span.glyphicon-chevron-right {font-size: 14px; float: none; margin-top: 5px;}
+
+.sidebar-nav li a {font-size: 18px; color: #2981a4;}
+
+.additional_info {padding: 40px 15px 20px;}
+.additional_info p {font-size: 12px;}
+
+
+.modules-menu a {text-decoration: none;}
+.modules-menu a:hover {color: red;}
+.modules-menu .glyphicon {font-size: 14px;}
+.modules-menu .well {min-height: 105px;}
+
+
+.review {margin: 10px 0; padding-bottom: 10px; border-bottom: 1px solid #e6e6e6;}
+.review .links {overflow: hidden;}
+.review .links li {float: left; margin-right: 20px;}
+.review a {text-decoration: none; color: #2981a4!important;}
+.review a:hover {background-color: #fff; color: red!important;}
+.review ul.rate {margin-bottom: 20px;}
+.review ul.rate li { float: left; margin-right: 3px;}
+.review ul.rate a {
+  background: url("/images/trust_star1.png") no-repeat;
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.review .review-date p {font-size: 12px;}
+
+.box-md,
+.box-lg {background-color: lightgray; padding: 10px 15px;}
+.box-lg .box-body {
+  height: 200px;
+  line-height: 170px;
+  text-align: center;
+  font-size: 44px;
+}
+.box-md .box-body {
+  height: 120px;
+  line-height: 90px;
+  text-align: center;
+  font-size: 44px;
+}
+
+.box-gray {background-color: #c2c2c2;}
+.box-lgray h3,
+.box-lgray p,
+.box-gray h3,
+.box-gray p
+{color: #1c424f;}
+.box-lgray {background-color: #ebebeb;}
+.box-orange {background-color: #e78125; color: #fff;}
+.box-orange p {color: #fff;}
+.box-blue {background-color: #428bca; color: #fff;}
+.box-blue p {color: #fff;}
+
+
+.warning {border-color: red;}
+
+
+.bg-success {
+    background-color: #23ae89;
+    color: #fff;
+}
+.bg-warning {
+    background-color: #ffb61c;
+    color: #fff;
+}
+.bg-danger {
+    background-color: #e94b3b;
+    color: #fff;
+}
+.bg-info {
+    background-color: #2ec1cc;
+    color: #fff;
+}
+.bg-social {
+    background-color: blue;
+    color: #fff;
+}
+
+
+
+ .box-icon {
+    border-radius: 50%;
+    display: block;
+    float: left;
+    font-size: 35px;
+    height: 65px;
+    line-height: 65px;
+    margin: 0 20px 0 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 65px;
+}
+.mini-box {
+    overflow: hidden;
+    margin-bottom: 10px!important;
+    font-family: 'Roboto';
+    font-size: 14px;
+}
+
+
+
+
+.panel-inverse > .panel-heading {
+    background: #242a30 none repeat scroll 0 0;
+}
+.panel-inverse .panel-title {
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+}
+.panel-inverse .panel-footer {
+    background-color: #00acac;
+}
+.panel-inverse .panel-footer a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.registered-users-list {
+    list-style-type: none;
+    margin: 7.5px;
+    padding: 0;
+}
+.registered-users-list > li {
+    color: #333;
+    float: left;
+    font-size: 12px;
+    padding: 7.5px;
+    width: 33%;
+}
+.registered-users-list > li > a {
+    display: block;
+    margin-bottom: 10px;
+}
+.registered-users-list > li img {
+    border-radius: 3px;
+    max-width: 100%;
+}
+.registered-users-list > li .username {
+    color: #333;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.text-ellipsis {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+.registered-users-list > li .username small {
+    color: #707478;
+    display: block;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+
+
+.table-users td {
+    vertical-align: middle;
+}
+.table-users .img {
+    background-clip: padding-box;
+    border-radius: 50%;
+    float: left;
+    height: 50px;
+    overflow: hidden;
+    width: 50px;
+}
+.table-users .img img {
+    height: 50px;
+}
+.table-users .details {
+    margin-left: 60px;
+}
+.table-users .details .name {
+    font-weight: 600;
+}
+.table-users .details .name a {
+    color: #212121;
+    font-size: 14px;   
+}
+.table-users .details .type {
+    font-size: 16px;
+}
+.table-users .details .type .label-danger {
+    background-color: #e84e40;
+}
+
+
+
+.state-Pending span { background-color: #f0ad4e; font-size: 100%;}
+.state-Sent span { background-color: #5cb85c; font-size: 100%;}
+.state-Error span { background-color: #d9534f; font-size: 100%;}
+.state-Canceled span { background-color: #777; font-size: 100%;}
+.state-Reviewed span { background-color: #5bc0de; font-size: 100%;}
+
+.revert_template select {
+    float: left;
+    margin-right: 10px;
+}
+
+.invite-add-panel td input { width: auto;margin-right: 10px;}
+.invite-add-panel td input.error { border-color: red;}
+
+
+
+
+.modal-categories li,
+.modal-root-categories li {
+    font-size: 12px;
+    width: 20%;
+    background-color: #f9f9f9;
+    border: 1px solid #fff;
+    float: left;
+    height: 115px;
+    line-height: 1.4;
+    padding: 10px;
+    text-align: center;
+}
+.modal-root-categories li:hover {
+    background-color: #03a9f4;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.modal-categories li.active,
+.modal-categories li:hover {
+    background-color: #eb751d;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.modal-categories li .glyphicon,
+.modal-root-categories li .glyphicon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.modal-categories li .glyphicon-class,
+.modal-root-categories li .glyphicon-class {
+    display: block;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.box_image {
+    width: 290px;
+    margin-bottom: 10px;
+    border: 3px solid #fff;
+}
+
+
+.dashboard-menu li { font-size: 13px;}

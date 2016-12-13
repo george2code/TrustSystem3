@@ -1,0 +1,134 @@
+﻿@using PagedList.Mvc
+@model TrustSystems3.ClientWeb.Models.UserReviewsViewModel
+
+@{
+    ViewBag.Title = Model.User.UserName;
+}
+
+<div class="row">
+    <div class="col-md-8">
+
+        <!-- User Information -->
+        <div class="panel panel-default wbg-color">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <br/>
+                        @if (!String.IsNullOrEmpty(Model.User.Avatar))
+                        {
+                            <img alt="250x250" class="img-circle" src="@Model.User.Avatar" data-holder-rendered="true" style="width: 180px; height: 180px;"/>
+                        }
+                        else
+                        {
+                            <img alt="250x250" class="img-circle" src="/images/team/our-team06.jpg" data-holder-rendered="true" style="width: 180px; height: 180px;"/>
+                        }
+                    </div>
+                    <div class="col-md-8">
+                        <!-- Full name -->
+                        <h1 class="title">profile @Model.User.UserName</h1>
+
+                        <p>
+                            @if (!String.IsNullOrEmpty(Model.User.Gender))
+                            {
+                                @Model.User.Gender
+                            }
+                        <br />
+                            @if (Model.User.BirthDate.HasValue)
+                            { @Model.User.BirthDate.Value.ToString("d") }
+                        <br />
+                            @if (!String.IsNullOrEmpty(Model.User.ExternalAddress))
+                            { @Model.User.ExternalAddress }
+                        </p>
+
+                        
+                        @if (!string.IsNullOrEmpty(Model.User.About))
+                        {
+                            <p>@Model.User.About</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="review_list">
+            @foreach (var review in Model.Reviews)
+            {
+                <div class="review">
+                    <div class="row">
+                        <div class="col-md-2 ava text-center">
+                            @if (!String.IsNullOrEmpty(Model.User.Avatar))
+                            {
+                                <img alt="140x140" class="img-circle" src="@Model.User.Avatar" data-holder-rendered="true" />
+                            }
+                            else
+                            {
+                                <img alt="140x140" class="img-circle" src="/images/team/our-team06.jpg" data-holder-rendered="true" />
+                            }
+                        </div>
+                        <div class="col-md-10 info">
+                            <div class="clearfix">
+                                <ul class="rate pull-left">
+                                    @for (int j = 0; j < review.Rating; j++)
+                                    {
+                                        <li><a href="#"></a></li>
+                                    }
+                                </ul>
+                                <p class="calendar pull-right">@review.DatePublished.Value.ToString("dd.MM.yy / hh:mm")</p>
+                            </div>
+                            <p>@Html.ActionLink(@Model.User.UserName, "UserReviews", "Review", new { id = @Model.User.Id }, null) | @Model.Reviews.Count отзыв(ов)</p>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="message_panel">
+                        <div class="corner"></div>
+                        <div class="message">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h5>@review.ReviewShort</h5>
+                                    @review.ReviewFull
+                                </div>
+                            </div>
+
+                            <div class="actions">
+                                <ul>
+                                    <li><a href="/showreview/@review.Id"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Комментарии</a></li>
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        <li><a href="javascript:void(0);" itemid="@review.Id" class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Полезен (<span class="counter">@review.ReviewLike.Count</span>)</a></li>
+                                        <li><a href="javascript:void(0);" itemid="@review.Id" class="complaint"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Пожаловаться (<span class="counter">@review.ReviewWarning.Count</span>)</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div><!-- End review -->
+                    </div>
+                </div>
+            }
+
+
+            @Html.Partial("Components/_PartialReviewScript");
+        </div><!-- review list -->
+
+        <div style="text-align: center;">
+                  @Html.PagedListPager(
+                    Model.Reviews, 
+                    page => "/users/" + @Model.User.Id + "?page=" + page,
+//                    page => Url.Action("UserReviews", "Review", new { page }),
+                    new PagedListRenderOptions { LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Назад",
+                        LinkToNextPageFormat = "Вперед",
+                        LinkToLastPageFormat = ">>" })
+            
+        </div>
+
+
+        @*                <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>*@
+            </div>
+
+
+    <div class="col-md-4">
+        @Html.Partial("Review/_PartialReviewSidebar")
+    </div>
+</div>

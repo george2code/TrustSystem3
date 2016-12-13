@@ -1,0 +1,35 @@
+﻿@if (!Request.IsAuthenticated)
+{
+    <div class="panel panel-default pn-login-social">
+        <div class="panel-body text-center">
+            <h4>@Localization.Client.TitleJoinSocial</h4>
+            <ul class="social-icons-login">
+                <li>
+                    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button title="Log in using your Vkontakte account" value="Vkontakte" name="provider" 
+                                id="Vkontakte" class="vk" type="submit">@Localization.Client.ButtonEnter "Vkontakte"</button>
+                    }
+                </li>
+                <li>
+                    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button title="Log in using your Google account" value="Google" name="provider" id="Google" class="gl"
+                                type="submit">@Localization.Client.ButtonEnter "Google+"</button>
+                    }
+                </li>
+
+                <li class="fb">
+                    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button title="Log in using your Facebook account" value="Facebook" name="provider" id="Facebook" class="fb"
+                                type="submit">@Localization.Client.ButtonEnter "Facebook"</button>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div>
+}

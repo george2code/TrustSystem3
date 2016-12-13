@@ -1,0 +1,47 @@
+﻿@model TrustSystems3.Afs
+@{
+    ViewBag.Title = "PreviewTemplate";
+}
+
+<h1>Invite your customers</h1>
+
+<div class="btn-group" role="group" aria-label="...">
+    @Html.ActionLink("Add Invites", "Add", "WizardAddInvites", null, new { @class = "btn btn-info" })
+    <button type="button" class="btn btn-default">Send from</button>
+    <button type="button" class="btn btn-primary">Select template</button>
+    <button type="button" class="btn btn-default">Done</button>
+</div>
+
+<h2>Create your invitation email</h2>
+<p>
+    Use our standard invitation email template or customize it to fit your brand. You can modify the text, color, font,
+    and add your own logo. Read instructions.
+</p>
+<br />
+
+@using (Html.BeginForm("PreviewTemplate", "WizardAddInvites", FormMethod.Post))
+{ 
+    <div class="form-group">
+        <label>Email Subject</label>
+        <input type="text" class="form-control" disabled="disabled" value="@Model.TemplateSubject" />
+    </div>
+
+    <div class="form-group">
+        <!-- model.Content -->
+        <label>Email template text</label>
+        @Html.Raw(Model.TemplateBody)
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            @Html.ActionLink("Back", "SendFrom", "WizardAddInvites", null, new { @class = "btn btn-warning", @name = "BtnPrevious" })
+        </div>
+        <div class="col-md-9 text-right">
+            <input type="submit" name="BtnNext" class="btn btn-success" value="Send invitations" />
+        
+        </div>
+    </div>
+}
+
+<br />
+<br />

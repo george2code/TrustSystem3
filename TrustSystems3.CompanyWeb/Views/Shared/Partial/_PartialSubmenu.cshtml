@@ -1,0 +1,35 @@
+﻿@using TrustSystems3.CompanyWeb.Helpers
+
+@if (ViewContext.RouteData.Values["controller"].ToString() == "Product")
+{
+    <nav class="navbar navbar-default">
+        <div class="container-fluid container">
+            <div id="bs-example-navbar-collapse-6" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.MenuLink("Review", "Review", "Product")</li>
+                    <li>@Html.MenuLink("Collect", "Collect", "Product")</li>
+                    <li>@Html.MenuLink("Invite", "Invite", "Product")</li>
+                    <li>@Html.MenuLink("Share", "Share", "Product")</li>
+                    <li>@Html.MenuLink("Services & Support", "Services", "Product")</li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+}
+
+@if (ViewContext.RouteData.Values["controller"].ToString() == "Resources")
+{
+    <nav class="navbar navbar-default">
+        <div class="container-fluid container">
+            <div id="bs-example-navbar-collapse-6" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.MenuLink("All", "All", "Resources")</li>
+                    <li>@Html.MenuLink("Examples", "Examples", "Resources")</li>
+                    <li>@Html.MenuLink("Calculate", "Calculate", "Resources")</li>
+                    <li>@Html.MenuLink("Our experience creating invitations", "Experience", "Resources")</li>
+                    <li>@Html.MenuLink("Brochure", "Brochure", "Resources")</li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+}

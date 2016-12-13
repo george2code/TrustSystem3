@@ -1,0 +1,34 @@
+﻿@model TrustSystems3.CompanyWeb.Models.ReviewSettingsViewModel
+@{
+    ViewBag.Title = "ReviewSettings";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="title">@Localization.Company.DashboardMenuReview</h1>
+        <p>
+            По умолчанию, отзывы для компании можно оставлять без кода подтверждения. Вы можете включить обязательное
+            подтверждение, тогда отзывы можно оставлять только если есть код, полученный с письмом приглашения.
+        </p>
+        <br/>
+        <div class="panel panel-default">
+            <div class="panel-body box-lgray">
+                <label>@Localization.Company.RSCodeRequired</label>
+                @using (Html.BeginForm("ReviewSettings", "CompanyProfile", FormMethod.Post)) {
+                    @Html.DropDownListFor(x => x.IsCodeRequired, Model.Answers, null, new {@class = "form-control"})
+                    <br />
+                    <input type="submit" value="@Localization.Company.ButtonSaveSettings" class="btn btn-primary" />
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#IsCodeRequired option').each(function() {
+            $(this).attr("autocomplete", "off");
+        });
+    });
+</script>

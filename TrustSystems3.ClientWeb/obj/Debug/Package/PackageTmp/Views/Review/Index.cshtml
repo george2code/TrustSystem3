@@ -1,0 +1,301 @@
+﻿@using PagedList.Mvc
+@using TrustSystems3
+@model TrustSystems3.ClientWeb.Models.Base.CompanyModel
+
+@{
+    ViewBag.Title = Model.Company.Name;
+}
+
+
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3&appId=1390175424532954";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="row">
+<div class="col-md-8 company-reviews-info">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Отзывы о "@Model.Company.Name"</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 logo">
+            @if (!string.IsNullOrEmpty(Model.Company.Logo))
+            {
+                <img src="@Url.Content("~/Content/uploads/company/" + Model.Company.Logo)"
+                     class="img-circle" alt="@Model.Company.Name"/>
+            }
+            else
+            {
+                <img src="@Url.Content("~/images/review/company_logo.jpg")"
+                     data-holder-rendered="true" class="img-circle" alt="@Model.Company.Name"/>
+            }
+        </div>
+        <div class="col-md-9 review">
+            <div class="info">
+                <div class="rev">
+                    <h3 class="pull-left">@Model.CompanyRatingLabel</h3>
+                    @if (Model.CanUserEvaluateReview)
+                    {
+                        @Html.ActionLink("Оставить отзыв о компании", "Evaluate", "Review",
+                            new {slug = Model.Company.Slug},
+                            new {@class = "pull-right btn btn-success"})
+                    }
+                    <div class="clearfix"></div>
+                </div>
+
+                <p class="mark">@Model.CompanyRating из 5</p>
+                @if (Model.CompanyRating > 0)
+                {
+                    <div>
+                        <ul class="rate pull-left">
+                            @for (var j = 0; j < Model.CompanyRating; j++)
+                            {
+                                <li><a href="#"></a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <p class="stat">@Model.Reviews.Count отзывов на TrustSystem</p>
+                }
+                @if (Model.LastReviewPassTime != null)
+                {
+                    <p>Самый свежий отзыв добавлен @Model.LastReviewPassTime.Value часа назад</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12"><hr/>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="review_list">
+            <div class="review-header clearfix">
+                <h4 class="pull-left">Отзывы (@Model.Company.Reviews.Count)</h4>
+                <br/>
+            </div>
+
+            @foreach (var reviewModel in Model.Reviews)
+            {
+                @Html.Partial("Review/_PartialCompanyReview", reviewModel)
+            }
+
+            <div class="row text-center">
+                @Html.PagedListPager(
+                    Model.Reviews,
+
+                    page => "/review/" + @Model.Company.Slug + "?page=" + page,
+                    new PagedListRenderOptions
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Назад",
+                        LinkToNextPageFormat = "Вперед",
+                        LinkToLastPageFormat = ">>"
+                    })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@Html.Partial("Components/_PartialReviewScript")
+
+
+
+<div class="col-md-4 sidebar-company">
+    <!-- rating table -->
+    <div class="panel panel-default mb40">
+        <div class="panel-body">
+            <h4>Распределение рейтинга</h4>
+
+            @Html.Raw(ViewBag.RateRanges)
+        </div>
+    </div>
+
+    <div class="panel">
+        <input type="hidden" id="companyid" value="@Model.Company.Id"/>
+        <p>Получите html для бейджика со ссылкой на страницу обзоров Вашей компании.</p>
+        <input type="button" style="width: 100%;" id="btn_badge" class="btn btn-success mb40" width="100%" value="Get site Badge"/>
+        <p>Получите html для iFrame с рейтингом Вашей компании и тремя последними отзывами.</p>
+        <input type="button" style="width: 100%;" id="btn_reviews" class="btn btn-success mb40" width="100%" value="Get site Reviews" />    
+    </div>
+
+   
+
+    @*    <div class="panel-badge">*@
+@*        <a href="@HttpContext.Current.Request.Url.AbsoluteUri" title="@Model.Company.Name">*@
+@*            <img src="@Url.Content("~/images/review/badge1.png")" alt="@Model.Company.Name"/>*@
+@*        </a>*@
+@*    </div>*@
+
+
+    <div class="company_about mb40">
+        <!-- Promotion Box-->
+        @if (Model.PromotionBox != null)
+        {
+            <h3>@Model.PromotionBox.Title</h3><br/>
+            if (Model.PromotionBox.Image != null)
+            {
+                <p><img class="box_image" src="@Url.Content(Model.PromotionBox.Image)" /></p>
+            }
+            else
+            {
+                <p><img class="box_image" src="@Url.Content("~/images/sw_promo.jpg")" /></p>
+            }
+            <h4>@Model.PromotionBox.Message</h4>
+            <p>@Model.PromotionBox.Details</p>
+        }
+        else
+        {
+            <h3>О @Model.Company.Name</h3>
+        }
+        <!-- END Promotion Box-->
+
+
+        <p>@Model.Company.Description</p>
+        <p>
+            <a href="#" class="btn_orange btn btn-warning" target="_blank">Посетить сайт компании</a>
+        </p>
+        <p>Делитесь мнениями. Расскажите друзьям, где совершать покупки. Поделиться значит позаботиться!</p>
+        <div class="share">
+            <img src="~/images/review/share_box.jpg" alt=""/>
+        </div>
+    </div><!-- company_about -->
+
+
+    <div class="company_contacts mb40">
+        <h3>Связаться с @Model.Company.Name</h3>
+        <p>Пишите на:<br/><a href="mail:@Model.Company.Email" class="email">@Model.Company.Email</a>
+        </p>
+        <p>Позвоните нам – мы перезвоним.<br/> @Model.Company.PhoneNumber</p>
+        <p>Мы живём здесь:</p>
+        <ul>
+            <li>@Model.Company.Address</li>
+            <li>@Model.Company.Zip</li>
+            @if (Model.Company.Country.HasValue)
+            {
+                <li>@Enum.GetName(typeof(CountryType), Model.Company.Country.Value)</li>
+            }
+        </ul>
+    </div><!-- company_contacts -->
+    <!-- categories -->
+    <div class="company_categories mb40">
+        <h4>Категории (@Model.CategoryPositions.Count)</h4>
+        <table class="table table-striped">
+
+            @foreach (var position in Model.CategoryPositions)
+            {
+                <tr>
+                    <td class="name">
+                        @Model.Company.Name оценена<br/>
+                        в категории @Html.ActionLink(@position.Category.Name, "CategoryCompanies", "Category", new {slug = position.Category.Slug}, null)
+                    </td>
+                    <td class="marked">
+                        @position.Position.ToString() из @position.TotalCompaniesCount.ToString()
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+
+    @if (Model.GuaranteeBox != null)
+    {
+        <div class="panel panel-default our_guarantee wgreenbg-color mb40">
+            <div class="panel-body">
+                <h4>@Model.GuaranteeBox.Title</h4>
+                @if (Model.GuaranteeBox.Image != null) {
+                    <p><img class="box_image" src="@Url.Content(Model.GuaranteeBox.Image)" /></p>
+                }
+                else {
+                    <p><img class="box_image" src="@Url.Content("~/images/sw_guarantee.jpg")" /></p>
+                }
+                <p><strong>@Model.GuaranteeBox.Message</strong>
+                </p>
+                <p>@Model.GuaranteeBox.Details</p>
+            </div>
+        </div>
+    }
+
+
+
+    <!-- rating table -->
+    <div class="panel panel-default mb30">
+        <div class="panel-body">
+            <h4>Доверие - наше все</h4>
+            <p>
+                Trust Systems создана для обеспечения лучших
+                условий совершения покупок для каждого, это
+                значит, что мы делаем всё для того, чтобы
+                исключить поддельные отзывы. <a href="#">Узнать больше</a>.
+            </p>
+            <p>
+                Если Вы обнаружили поддельный отзыв,
+                оставленный на странице Вашей компании,
+                мы хотим об этом знать. <a href="#">
+                    Пожалуйста,
+                    свяжитесь с нами здесь
+                </a>.
+            </p>
+        </div>
+    </div>
+
+    @if (Model.FacebookBox != null) {
+        <!-- facebook like box -->
+        <div class="mb30 text-center">
+            <div class="fb-page" data-href="@Model.FacebookBox.Message" data-width="280" data-height="500" 
+                 data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+                <div class="fb-xfbml-parse-ignore">
+                    <blockquote cite="@Model.FacebookBox.Message"><a href="@Model.FacebookBox.Message">Facebook</a></blockquote>
+                </div>
+            </div>
+        </div>
+    }
+
+</div><!-- END sidebar -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#btn_badge').click(function(e) {
+            e.preventDefault();
+
+            var id = $("#companyid").val();
+
+            // render top companies
+            $.ajax({
+                url: '@Url.Action("Index", "Badge")',
+                type: "GET",
+                dataType: 'text',
+                data: { companyId: id }
+            }).done(function(data) {
+                alert(data);
+            });
+        });
+
+        $('#btn_reviews').click(function(e) {
+            var id = $("#companyid").val();
+            var str = "<iframe src='http://localhost:29216/badge/reviews?companyId="
+                + id
+                + "' width='400' height='825' scrolling='no' frameborder='0' align='left'>Ваш браузер не поддерживает плавающие фреймы!</iframe>";
+
+            alert(str);
+        });
+
+    });
+</script>

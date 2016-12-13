@@ -1,0 +1,69 @@
+﻿@using TrustSystems3.ClientWeb.Utils
+@model TrustSystems3.ClientWeb.Models.Base.ReviewModel
+           
+@*<div class="review">*@
+@*    <div class="ava pull-left">*@
+@*        <img alt="140x140" class="img-circle"*@
+@*             src="@Model.UserAvatar"*@
+@*             data-holder-rendered="true" />*@
+@*    </div>*@
+@*    <div class="info pull-right">*@
+@*        <div class="clearfix">*@
+@*            <ul class="rate pull-left">*@
+@*                @for (int i = 0; i < Model.Review.Rating; i++) {*@
+@*                    <li><a href="#"></a></li>*@
+@*                }*@
+@*            </ul>*@
+@*            *@
+@*            @if (Model.Review.DatePublished.HasValue) {*@
+@*                <p class="pull-right"><span class="label label-danger">@Model.Review.DatePublished.Value.ToString("d")</span></p>*@
+@*            }*@
+@*        </div>*@
+@*        <p>@Html.Raw(TagBuilderHelper.GetUserLink(Model.User))</p>*@
+@*        <p>has been published @Model.UserReviewsCount review(s)</p>*@
+@*        <p>about @Html.Raw(TagBuilderHelper.GetCompanyLink(Model.Review.Companies))</p>*@
+@*    </div>*@
+@*    <div class="clearfix"></div>*@
+@*    <div class="message_panel">*@
+@*        <div class="corner"></div>*@
+@*        <div class="message">*@
+@*            <div class="panel panel-default">*@
+@*                <div class="panel-body">*@
+@*                    @Html.Raw(Model.Review.ReviewFull)*@
+@*                   *@
+@*                </div>*@
+@*            </div>*@
+@*        </div>*@
+@*    </div>*@
+@*</div><!-- End review -->*@
+
+
+
+
+<li class="clearfix">
+
+    <div class="img">
+        <img alt="" src="@Model.UserAvatar"/>
+    </div>
+
+    <div class="title">
+        @Html.Raw(TagBuilderHelper.GetUserLink(Model.User))<br/> @Localization.Client.LabelPublished @Model.UserReviewsCount @Localization.Client.LabelReviews
+        <p class="company-name">@Localization.Client.LabelAbout @Html.Raw(TagBuilderHelper.GetCompanyLink(Model.Review.Companies))</p>
+        <ul class="rate">
+
+            @for (int i = 0; i < Model.Review.Rating; i++) {
+                <li><a href="#"></a></li>
+            }
+        </ul>
+    </div>
+
+    <div class="post-time">
+        @Html.Raw(Model.Review.ReviewFull)
+    </div>
+    @if (Model.Review.DatePublished.HasValue)
+    {
+        <div class="time-ago">
+            <i class="fa fa-clock-o"></i> @Model.Review.DatePublished.Value.ToString("d")
+        </div>
+    }
+</li>

@@ -1,0 +1,412 @@
+﻿body {
+}
+
+.reg-block {
+    background: #fff none repeat scroll 0 0;
+    border-top: 2px solid #72c02c;
+    margin: 80px auto 120px auto;
+    padding: 20px;
+    width: 380px;
+}
+.reg-block-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+}
+.reg-block-header h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+.social-icons {
+    margin-top: 5px;
+    padding: 0;
+}
+.social-icons li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0;
+    text-indent: -9999px;
+}
+.social-icons li a {
+    margin: 0 3px;
+}
+
+.rounded-x {
+    border-radius: 50% !important;
+}
+
+
+.social_twitter {
+    background: rgba(0, 0, 0, 0) url("../images/unify/icons/social/twitter.png") no-repeat scroll 0 0;
+}
+.social_facebook {
+    background: rgba(0, 0, 0, 0) url("../images/unify/icons/social/facebook.png") no-repeat scroll 0 0;
+}
+.social_googleplus {
+    background: rgba(0, 0, 0, 0) url("../images/unify/icons/social/googleplus.png") no-repeat scroll 0 0;
+}
+.social_vkontakte {
+    background: rgba(0, 0, 0, 0) url("../images/unify/icons/social/vkontakte.png") no-repeat scroll 0 0;
+}
+
+
+.social-icons li button {
+    border: none;
+}
+
+.social-icons li button, button.a.social-icon,
+.social-icons li a, a.social-icon {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    height: 28px;
+    transition: all 0.3s ease-in-out 0s;
+    width: 28px;
+}
+.social-icons li:hover button,
+.social-icons li:hover a {
+    background-position: 0 -38px;
+}
+
+
+
+.reg-block .input-group-addon {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #bbb;
+    min-width: 40px;
+}
+
+
+.reg-block-header p {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+.reg-block .checkbox {
+    color: #555;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.reg-block .checkbox { font-size: 13px;color: #777;}
+
+
+.reg-block .field-validation-error { font-size: 12px;margin-bottom: 5px;display: inline-block;}
+
+
+
+
+
+
+.unify {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+.unify h1, .unify h2, .unify h3, .unify h4, .unify h5, .unify h6 {
+    color: #555;
+    font-family: "Open Sans",Arial,sans-serif;
+    font-weight: normal;
+    margin-top: 5px;
+    text-shadow: none;
+}
+.unify p, .unify li, .unify li a, .unify label {
+    color: #555;
+}
+.unify a {
+    color: #72c02c;
+}
+
+.unify .breadcrumbs {
+    background: rgba(0, 0, 0, 0) url("../images/unify/breadcrumbs.png") repeat scroll 0 0;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    padding: 10px 0 6px;
+    margin-bottom: 30px;
+
+}
+.breadcrumbs h1 {
+    color: #666;
+    font-size: 22px;
+    margin-top: 12px;
+    font-family: "Open Sans",Arial,sans-serif;
+    font-weight: normal;
+}
+.breadcrumb {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    padding-right: 0;
+    position: relative;
+    top: 10px;
+}
+.breadcrumb > li {
+    display: inline-block;
+}
+.breadcrumb a {
+    color: #777;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+}
+.breadcrumb li.active, .breadcrumb li a:hover {
+    color: #72c02c;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+.unify .lead {
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+
+
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+.margin-bottom-5, .margin-bottom-10, .margin-bottom-15, .margin-bottom-20, .margin-bottom-25, .margin-bottom-30, .margin-bottom-35, .margin-bottom-40, .margin-bottom-45, .margin-bottom-50, .margin-bottom-55, .margin-bottom-60, .margin-bottom-100 {
+    clear: both;
+}
+
+.color-green {
+    color: #72c02c;
+}
+
+.unify .headline {
+    border-bottom: 1px dotted #e4e9f0;
+    display: block;
+    margin: 10px 0 25px;
+}
+.unify .headline h2, .unify .headline h3, .unify .headline h4 {
+    border-bottom: 2px solid #72c02c;
+    display: inline-block;
+    margin: 0 0 -2px;
+    padding-bottom: 5px;
+}
+.unify .headline h2 {
+    font-size: 22px;
+}
+.unify .list-unstyled {
+    list-style: outside none none;
+    padding-left: 0;
+}
+.unify .who li {
+    margin-bottom: 6px;
+}
+.unify .who li i {
+    color: #72c02c;
+    font-size: 13px;
+    margin-right: 8px;
+    min-width: 15px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+.unify .acc-v1 .panel-heading {
+    box-shadow: none;
+    padding: 0;
+}
+.unify .acc-v1 .panel-heading a {
+    background: #fefefe none repeat scroll 0 0;
+    display: block;
+    font-size: 14px;
+    padding: 5px 15px;
+    color: #333;
+    text-decoration: none;
+    outline: none;
+}
+.unify .acc-v1 .panel-heading a:hover {
+       color: #72c02c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.unify .breadcrumbs-v3::after {
+    background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+    content: " ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.unify .breadcrumbs-v3.img-v3 {
+    background: rgba(0, 0, 0, 0) url("../images/unify/img3.jpg") no-repeat scroll center center / cover ;
+}
+.unify .breadcrumbs-v3 {
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+.unify .breadcrumbs-v1, .breadcrumbs-v3 {
+    transition: all 0.8s ease-in-out 0s;
+}
+.unify .breadcrumbs-v3 h1 {
+    color: #fff;
+    font-size: 40px;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+.unify .breadcrumbs-v3 p {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+
+
+
+.unify .content-sm {
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+.unify .headline-center {
+    position: relative;
+    text-align: center;
+}
+.unify .headline-center h2 {
+    color: #555;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    position: relative;
+}
+.unify .headline-center h2::after {
+    background: #72c02c none repeat scroll 0 0;
+    bottom: -5px;
+    content: " ";
+    height: 2px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    text-align: center;
+    width: 30px;
+    z-index: 1;
+}
+.unify .headline-center p {
+    font-size: 14px;
+}
+
+.unify .lists-v1 {
+    padding: 0 15px;
+}
+.unify .lists-v1 i {
+    background: #72c02c none repeat scroll 0 0;
+    border-radius: 50% !important;
+    color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    height: 15px;
+    margin-right: 7px;
+    padding: 1px;
+    text-align: center;
+    width: 15px;
+}
+.unify .lists-v1 li {
+    margin-bottom: 10px;
+}
+
+
+
+.unify .service-block-v5 {
+    background: #f7f7f7 none repeat scroll 0 0;
+    text-align: center;
+    color: #333;
+}
+.unify .service-block-v5 .service-inner {
+    padding: 80px 40px;
+}
+.unify .service-block-v5 .service-inner i {
+    margin-bottom: 30px;
+}
+.unify .service-block-v5 .service-inner span {
+    display: block;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+
+.unify i.icon-custom {
+    border: 1px solid #555;
+    color: #555;
+    display: inline-block;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 40px;
+}
+.unify i.icon-md {
+    font-size: 22px;
+    height: 55px;
+    line-height: 55px;
+    width: 55px;
+}
+.unify i.icon-bg-u {
+    background: #72c02c none repeat scroll 0 0;
+}
+.unify i.icon-bg-u, i.icon-bg-red, i.icon-bg-sea, i.icon-bg-dark, i.icon-bg-darker, i.icon-bg-grey, i.icon-bg-blue, i.icon-bg-green, i.icon-bg-yellow, i.icon-bg-orange, i.icon-bg-purple, i.icon-bg-aqua, i.icon-bg-brown, i.icon-bg-dark-blue, i.icon-bg-light-grey, i.icon-bg-light-green {
+    border-color: transparent;
+    color: #fff;
+}
+
+.unify .bg-color-light {
+    background-color: #f7f7f7 !important;
+}
+
+
+.unify .owl-video img.video-play {
+    left: 50%;
+    margin-left: -52px;
+    margin-top: -52px;
+    position: absolute;
+    top: 50%;
+}
+.unify .owl-item { text-align: center;}
+.unify .owl-item a { display: inline-block;}
+
+
+
+.unify .team-v4 {
+    text-align: center;
+}
+.unify .team-v4 img {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.unify .team-v4 span {
+    color: #333;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.unify .team-v4 small {
+    color: #999;
+    display: block;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.unify .pricing { background-color: #fff;}
+.unify .pricing-head h3 { color: #fff;}

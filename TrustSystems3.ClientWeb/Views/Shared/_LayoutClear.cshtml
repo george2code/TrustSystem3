@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@TrustSystems3.ClientWeb.Utils.PagesHelper.GetBusinessTitle(ViewBag.Title)</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700italic,700'
+          rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.icon-large.min.css")" type="text/css"/>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/font-awesome.css")" type="text/css"/>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/all.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/home.css")" type="text/css"/>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/owl.carousel.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/page_pricing.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/unify.css")" type="text/css"/>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/unify/back-to-top.js")"></script>
+    <style type="text/css">
+        body {padding-top: 0;}
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="main">
+            <div class="container">
+                <!-- Example row of columns -->
+                @RenderBody()
+            </div> <!-- /container -->
+        </div><!-- main -->
+    </div><!-- wrap -->
+   
+    @RenderSection("scripts", required: false)
+</body>
+</html>

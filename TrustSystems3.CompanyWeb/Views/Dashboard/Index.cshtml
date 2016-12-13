@@ -1,0 +1,103 @@
+﻿@model TrustSystems3.Companies
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div role="alert" class="alert alert-info alert-dismissible fade in">
+    <button data-dismiss="alert" class="close" type="button">
+        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Добро пожаловать в вашу панель управления!</strong><br/>Сводный обзор вашей эффективности - отслеживайте
+    ваши результаты и узнавайте, что можно сделать для улучшения вашего сервиса и повышения удовлетворенности клиентов.
+</div>
+
+@if (Model.Categories == null || !Model.Categories.Any())
+{
+    <div role="alert" class="alert alert-danger alert-dismissible fade in">
+        <button data-dismiss="alert" class="close" type="button">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <strong>Назначьте Вашей компании от 1 до 6 категорий, чтобы Вас легче было найти потенциальным клиентам!</strong>
+        <br />Для этого перейдите в <u>@Html.ActionLink("Управление категориями", "Categories", "CompanyProfile", null, new { @class = "text-danger" })</u>
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img alt="100%x180" data-src="holder.js/100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjU5IiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img alt="100%x180" data-src="holder.js/100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjU5IiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img alt="100%x180" data-src="holder.js/100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjU5IiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img alt="100%x180" data-src="holder.js/100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjU5IiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+        </a>
+    </div>
+</div>
+
+
+<br />
+<h2 class="text-center text-primary">What to do next</h2>
+<br />
+
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="@Url.Action("InviteCustomers", "Invitations")" class="list-group-item mini-box">
+            <span class="box-icon bg-success">
+                <i class="glyphicon glyphicon-envelope"></i>
+            </span>It's time to invite some<br /> more customers
+            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a href="@Url.Action("Afs", "Invitations")" class="list-group-item mini-box">
+            <span class="box-icon bg-info">
+                <i class="glyphicon glyphicon-refresh"></i>
+            </span>Automatically invite new<br /> customers to write a review
+            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="@Url.Action("Information", "CompanyProfile")" class="list-group-item mini-box">
+            <span class="box-icon bg-warning">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </span>Add a description to your<br /> company profile
+            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a href="#" class="list-group-item mini-box">
+            <span class="box-icon bg-danger">
+                <i class="glyphicon glyphicon-user"></i>
+            </span>Get Trustpilot reviews on<br /> your Facebook Page
+            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="@Url.Action("Facebook", "CompanyProfile")" class="list-group-item mini-box">
+            <span class="box-icon bg-social">
+                <i class="glyphicon glyphicon-inbox"></i>
+            </span>Add a Facebook Fan Box<br /> to your company profile
+            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        </a>
+    </div>
+</div>

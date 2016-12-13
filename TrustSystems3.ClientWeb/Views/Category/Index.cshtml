@@ -1,0 +1,75 @@
+﻿@using TrustSystems3
+@using TrustSystems3.BL.Utils
+@using TrustSystems3.ClientWeb.Utils
+@model TrustSystems3.ClientWeb.Models.CategoriesViewModel
+@{
+    ViewBag.Title = "Categories";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>@Localization.Client.LinkCategories</h3>
+        <br />
+
+        <div class="sidebar-nav">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="visible-xs navbar-brand">Sidebar menu</span>
+                </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        @foreach (var root in Model.RootCategories) {
+                            <li>
+                                <a href="/category/@root.Slug">
+                                    @Localization.Categories.ResourceManager.GetString(ResourceUtils.GetRootCategory(root.Name))
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9 categories">
+        <h3>@Localization.Client.TitleBestCompaniesInMain</h3>
+        <br />
+
+        <div class="row">
+            @foreach (List<RootCategory> rootCategories in Model.CategoryDictionary.Keys.InSetsOf(4))
+            {
+                <div class="col-md-4">
+                @foreach (RootCategory item in rootCategories)
+                {
+                    <h4><a href="/category/@item.Slug">@Localization.Categories.ResourceManager.GetString(ResourceUtils.GetRootCategory(item.Name))</a></h4>
+                    if (item.Category.Count == 0)
+                    {
+                        <div class="empty-companies-box">Empty</div>
+                    }
+                    else
+                    {
+                        <table class="table table-striped">
+                        <tbody>
+                        @foreach (var sub in Model.RootCompanies[item.Id])
+                        {
+                            <tr>
+                                <td><a href="/review/@sub.Key.Slug">@sub.Key.Name</a></td>
+                                <td>@sub.Value</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    }
+                    <br/>
+                }
+                </div>
+            }
+        </div><!-- end row -->
+    </div>
+</div>

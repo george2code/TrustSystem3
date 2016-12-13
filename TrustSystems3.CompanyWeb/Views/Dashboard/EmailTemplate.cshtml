@@ -1,0 +1,97 @@
+﻿@using TrustSystems3
+@model TrustSystems3.CompanyWeb.Models.EmailTemplateViewModel
+
+<h2>Customize invitation email for AFS</h2>
+
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Guidelines for the use of the TrustSystems service:</h3>
+    </div>
+    <div class="panel-body">
+        Invitations are sent to encourage consumers to write reviews regardless of whether their purchasing experience was
+        positive or negative. Invitations should not attempt to influence or persuade the consumer in any way.
+        All invitations include a link to Trustpilot’s review form.
+    </div>
+</div>
+
+<br />
+<h4>Show the template for</h4>
+<br />
+
+<div class="revert_template">
+    @Html.DropDownList("LangType", EnumHelper.GetSelectList(typeof(CountryType)), "Select language to revert", new { @class = "form-control" })
+    <button type="button" class="btn btn-primary">Revert template</button>
+</div>
+
+<br />
+<br />
+<hr/>
+
+<!-- Template -->
+<h4>Template Settings</h4>
+<br/>
+
+
+@using (Html.BeginForm("EmailTemplate", "Dashboard", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Delay)
+        @Html.TextBoxFor(m => m.Delay, new { @class = "form-control", @placeholder = "in days", @id = "inputDelay" })
+        @Html.ValidationMessageFor(m => m.Delay)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject)
+        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = "Subject" })
+        @Html.ValidationMessageFor(m => m.Subject)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Body)
+        @Html.EditorFor(model => model.Body, new {@class = "wysihtml5", @id = "some-textarea"})
+        @Html.ValidationMessageFor(model => model.Body)
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            You can use special placeholders in the email which will be replaced when we send the email:<br/>
+            <strong>[Name]</strong> The name of the customer or ”customer” if unknown<br/>
+            <strong>[Link]</strong> The one-click review link<br/>
+            <strong>[DomainName]</strong> The name of the domain<br/>
+            <strong>[Order]</strong> The order number<br/>
+            <strong>[UnsubscribeLink]</strong> The unsubscribe link.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block">Save settings</button>
+}
+<!-- end Template -->
+
+<br/>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/tinymce/tiny_mce.js")"></script>
+<script type="text/javascript">
+    $(window).load(function () 
+    {
+        $('.revert_template .btn').click(function () {
+            var select = $('.revert_template select');
+
+            if (select.val() == "") {
+                alert("Please, select template language");
+            } else {
+                // update template via ajax
+                $.ajax({
+                    url: '@Url.Action("UpdateTemplate", "Dashboard")',
+                    type: "POST",
+                    dataType: 'json',
+                    data: { languageId: select.val() }
+                }).done(function (data) {
+                    $('#Subject').val(data["subject"]);
+                    tinyMCE.activeEditor.setContent(data["body"]);
+                });
+                // end
+            }
+        });
+    });
+</script>

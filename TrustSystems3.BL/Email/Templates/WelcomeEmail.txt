@@ -1,0 +1,21 @@
+﻿<html>
+	<body style="color:grey; font-size:15px;">
+		<font face="Helvetica, Arial, sans-serif">
+
+		<div style="background-color: #ece8d4; width:600px; height:200px; padding:30px; margin-top:30px;">
+
+		<p>Dear {0},<p>
+
+		<p>Please click the link below to login and get started.</p>
+		<p>
+		<a href="">Login Here</a>
+
+		Username: {1}<br>
+		Password: {2}<br>
+
+     
+		<br/>
+		<p>Thank you</p>
+		</div>
+	</body>
+</html>

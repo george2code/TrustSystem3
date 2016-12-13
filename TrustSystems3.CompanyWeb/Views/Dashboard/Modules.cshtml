@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Modules";
+}
+
+<div role="alert" class="alert alert-warning alert-dismissible fade in">
+    <button data-dismiss="alert" class="close" type="button">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <strong>Remember to configure the Automatic Feedback Service. ® </strong><br/>The service is essential for
+    collecting reviews from your customers.
+</div>
+
+<div class="row modules-menu">
+    <!-- Left menu -->
+    <div class="col-md-6">
+        <h4>Automatic Feedback Service</h4>
+        <br/>
+        
+        <a href="@Url.Action("Afs", "Invitations")">
+            <div class="well well-lg">
+                <span class="glyphicon glyphicon-refresh"></span>
+                <strong>Automatic Feedback Service.®</strong><br/> Collect reviews from your customers by email.
+            </div>
+        </a>
+
+
+        <!-- email template -->
+        <a href="@Url.Action("EmailTemplate", "Dashboard")">
+            <div class="well well-lg">
+                <span class="glyphicon glyphicon-pencil"></span>
+                <strong>Template for feedback email</strong><br /> Customize the email  the AFS sends out to your customers
+            </div>
+        </a>
+
+
+        <a href="@Url.Action("History", "Invitations")">
+            <div class="well well-lg">
+                <span class="glyphicon glyphicon-list"></span>
+                <strong>Invitation History</strong><br /> Our advanced, NEW tool for tracking your invitations
+                (formerly Feedback Service History)
+            </div>
+        </a>
+
+        <a href="@Url.Action("InviteCustomers", "Invitations")">
+            <div class="well well-lg">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <strong>Invite your customers</strong><br /> Try out our new and improved interface for collecting reviews
+            </div>
+        </a>
+
+        <a href="javascript:void(0);">
+            <div class="well well-lg">
+                <span class="glyphicon glyphicon-qrcode"></span>
+                <strong>Request that reviewers submit an order ID</strong><br /> Link an order ID to every review to
+                make it easier for you to reply
+            </div>
+        </a>
+    </div>
+</div>

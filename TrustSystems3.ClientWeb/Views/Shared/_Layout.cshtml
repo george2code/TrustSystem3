@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@TrustSystems3.ClientWeb.Utils.PagesHelper.GetBusinessTitle(ViewBag.Title)</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700italic,700'
+          rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.icon-large.min.css")" type="text/css"/>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/font-awesome.css")" type="text/css" />
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/all.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/home.css")" type="text/css"/>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/owl.carousel.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/page_pricing.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/unify.css")" type="text/css" />
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/unify/back-to-top.js")"></script>
+
+    <!-- Put this script tag to the <head> of your page -->
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+
+    <script type="text/javascript">
+        VK.init({ apiId: 4985528, onlyWidgets: true });
+    </script>
+</head>
+<body>
+
+    <script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '514583595358191',
+            xfbml: true,
+            version: 'v2.4'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+<div id="wrap" class="margin-bottom-60">
+    <div id="header">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"></a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    @Html.Partial("_LoginPartial")
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+
+        <nav class="navbar search-panel">
+            <div class="container">
+                
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation">@Html.ActionLink("Ru", "SetCulture", "Home", new { culture = "ru" }, new { @class = "flag_ru" })</li>
+                    <li role="presentation">@Html.ActionLink("En", "SetCulture", "Home", new {culture = "en"}, new {@class = "flag_en"})</li>
+                </ul>
+               
+
+                <div class="search">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get, new {@class = "navbar-form navbar-right"}))
+                    {
+                        @Html.TextBox("txtValue", "", new { @class = "form-control", @id = "search_field", placeholder = "Find Company..." })
+                        <input type="submit" class="btn btn-primary" value="@Localization.Client.ButtonSearch"/>
+                    }
+                </div>
+            </div>
+        </nav>
+    </div><!-- header -->
+
+    <div id="main">
+        <div class="container">
+            @*                <% flash.each do |message_type, message| %>*@
+            @*                <div class="alert alert-<%= message_type %>"><%= message %></div>*@
+            @*                <% end %>*@
+
+            <!-- Example row of columns -->
+            @RenderBody()
+        </div> <!-- /container -->
+    </div><!-- main -->
+</div><!-- wrap -->
+
+
+    @if (Request.RequestContext.RouteData.Values["controller"].ToString().ToLower() != "account")
+    {
+@*        @Html.Partial("Components/_PartialFooter")*@
+
+
+        <footer id="footer" class="footer">
+            <div class="container">
+                <ul class="nav nav-pills">
+                    <li role="presentation">@Html.ActionLink(Localization.Client.LinkAbout, "About", "Home")</li>
+                    <li role="presentation">@Html.ActionLink(Localization.Client.LinkBlog, "Blog", "Page")</li>
+                    <li role="presentation">@Html.ActionLink(Localization.Client.LinkFAQ, "Faq", "Page")</li>
+
+                    <li role="presentation">@Html.ActionLink(Localization.Client.LinkTerms, "Conditions", "Page")</li>
+                    <li role="presentation">@Html.ActionLink(Localization.Client.LinkPrivacy, "ConfidentialPolitic", "Page")</li>
+
+                    <li role="presentation">@Html.ActionLink(Localization.Client.LinkContacts, "Contacts", "Home")</li>
+                </ul>
+            </div>
+        </footer>
+    }
+
+
+    <div id="top" style="position: fixed; bottom: 5px; right: 5px; opacity: 1; cursor: pointer;" title="Scroll Back to Top"></div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

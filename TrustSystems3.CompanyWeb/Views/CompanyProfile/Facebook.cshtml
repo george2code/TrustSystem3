@@ -1,0 +1,35 @@
+﻿@model TrustSystems3.CompanyWeb.Models.CompanyBoxViewModel
+@{
+    ViewBag.Title = "Facebook";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="title">Facebook Like Box</h1>
+        <p>@Localization.Company.FBMessage</p>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-body box-lgray">
+            @using (Html.BeginForm("Facebook", "CompanyProfile"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+
+                <div class="form-group">
+                    <label>@Localization.Company.FBLabel</label>
+                    @Html.TextBoxFor(m => m.Message, new { @class = "form-control", placeholder = "http://www.facebook.com/trustsystems" })
+                </div>
+                <br/>
+                <input type="submit" class="btn btn-primary" value="@Localization.Company.ButtonUpdate" />
+            }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 text-center">
+        <br />
+        <p><a href="#">@Localization.Company.ViewProfileTs</a></p>
+        <br />
+        <img src="@Url.Content("~/images/dashboard/facebook_likebox.jpg")" alt="" />
+
+    </div>
+</div>

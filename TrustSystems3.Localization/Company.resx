@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonAddCategory" xml:space="preserve">
+    <value>Добавить категорию</value>
+  </data>
+  <data name="ButtonRemoveCategory" xml:space="preserve">
+    <value>Удалить данную категорию</value>
+  </data>
+  <data name="ButtonSaveChanges" xml:space="preserve">
+    <value>Сохранить изменения</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Название категории</value>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>Категории</value>
+  </data>
+  <data name="CICompanyName" xml:space="preserve">
+    <value>Название компании:</value>
+  </data>
+  <data name="CICountry" xml:space="preserve">
+    <value>Страна:</value>
+  </data>
+  <data name="CIDescription" xml:space="preserve">
+    <value>Описание:</value>
+  </data>
+  <data name="CIDisplayName" xml:space="preserve">
+    <value>Показать краткое имя:</value>
+  </data>
+  <data name="CIDisplayScreenshot" xml:space="preserve">
+    <value>Покажите screenshot вашей главной страницы</value>
+  </data>
+  <data name="CIEmail" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="CIPhone" xml:space="preserve">
+    <value>Телефон:</value>
+  </data>
+  <data name="CIStreetAddress" xml:space="preserve">
+    <value>Город и адрес улицы:</value>
+  </data>
+  <data name="CISubTitle" xml:space="preserve">
+    <value>Пожалуйста, заполните информацию об Вашей компании.</value>
+  </data>
+  <data name="CITitle" xml:space="preserve">
+    <value>Информация о компании</value>
+  </data>
+  <data name="CITitleAbout" xml:space="preserve">
+    <value>О Компании</value>
+  </data>
+  <data name="CITitleContactInfo" xml:space="preserve">
+    <value>Контактная информация</value>
+  </data>
+  <data name="CITitleSettings" xml:space="preserve">
+    <value>Настройки для Вашего your-shop.ru</value>
+  </data>
+  <data name="CITitleUpload" xml:space="preserve">
+    <value>Загрузите изображение для Вашей компании</value>
+  </data>
+  <data name="CIUploadCompanyImage" xml:space="preserve">
+    <value>Или загрузите логотип компании</value>
+  </data>
+  <data name="CIWebsite" xml:space="preserve">
+    <value>Website компании:</value>
+  </data>
+  <data name="CIZip" xml:space="preserve">
+    <value>Почтовый Zip код:</value>
+  </data>
+  <data name="DashboardMenuCategories" xml:space="preserve">
+    <value>Категории</value>
+  </data>
+  <data name="DashboardMenuCompany" xml:space="preserve">
+    <value>Инфо компании</value>
+  </data>
+  <data name="DashboardMenuFacebook" xml:space="preserve">
+    <value>Facebook Box</value>
+  </data>
+  <data name="DashboardMenuGuarantee" xml:space="preserve">
+    <value>Гарантии-бокс</value>
+  </data>
+  <data name="DashboardMenuPromo" xml:space="preserve">
+    <value>Промо-бокс</value>
+  </data>
+  <data name="DashboardMenuReview" xml:space="preserve">
+    <value>Настройки отзывов</value>
+  </data>
+  <data name="LabelAction" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="MenuAccountSettings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="MenuCompanyProfile" xml:space="preserve">
+    <value>Профиль компании</value>
+  </data>
+  <data name="MenuDashboard" xml:space="preserve">
+    <value>Панель управления</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="MenuInvitations" xml:space="preserve">
+    <value>Приглашения</value>
+  </data>
+  <data name="MenuModules" xml:space="preserve">
+    <value>Модули</value>
+  </data>
+  <data name="MenuMyProfile" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="MenuPricing" xml:space="preserve">
+    <value>Цены</value>
+  </data>
+  <data name="MenuProduct" xml:space="preserve">
+    <value>Продукты</value>
+  </data>
+  <data name="MenuResources" xml:space="preserve">
+    <value>Ресурсы</value>
+  </data>
+  <data name="MenuReviews" xml:space="preserve">
+    <value>Отзывы</value>
+  </data>
+  <data name="MenuSignout" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="MenuStatistics" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="MenuUserManage" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="MenuWelcome" xml:space="preserve">
+    <value>Добро пожаловать</value>
+  </data>
+  <data name="MenuWhyUs" xml:space="preserve">
+    <value>Почему мы</value>
+  </data>
+  <data name="ViewProfileTs" xml:space="preserve">
+    <value>Посмотреть мой профиль на TrustSystem</value>
+  </data>
+  <data name="ButtonSaveSettings" xml:space="preserve">
+    <value>Сохранить настройки</value>
+  </data>
+  <data name="ButtonUpdate" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="FBLabel" xml:space="preserve">
+    <value>Введите URL-адрес Вашей Facebook страницы.</value>
+  </data>
+  <data name="FBMessage" xml:space="preserve">
+    <value>Ваши клиенты любят Вас? Докажите! Получите больше доверия со стороны клиентов, добавив Facebook Like бокс на страницу Вашего профиля.</value>
+  </data>
+  <data name="RSCodeRequired" xml:space="preserve">
+    <value>Необходимо ли запрашивать код для отзыва?</value>
+  </data>
+  <data name="BoxHeadline" xml:space="preserve">
+    <value>Заголовок сообщения:</value>
+  </data>
+  <data name="BoxMessageDetails" xml:space="preserve">
+    <value>Детали сообщения:</value>
+  </data>
+  <data name="BoxPicture" xml:space="preserve">
+    <value>Изображение бокса</value>
+  </data>
+  <data name="BoxTitle" xml:space="preserve">
+    <value>Пожалуйста, добавьте заглавие:</value>
+  </data>
+  <data name="ButtonRemoveImage" xml:space="preserve">
+    <value>Удалить изображение</value>
+  </data>
+  <data name="LabelImageResized" xml:space="preserve">
+    <value>или размер изображения будет изменен</value>
+  </data>
+  <data name="LabelRecommendedSize" xml:space="preserve">
+    <value>Рекомендованный размер</value>
+  </data>
+  <data name="PromoBoxCommited" xml:space="preserve">
+    <value>Например, наши обязательства перед клиентами!</value>
+  </data>
+  <data name="PromoBoxMessage" xml:space="preserve">
+    <value>Дайте клиентам узнать больше о Вашей компании. Используйте Promotion бокс, чтобы показать основные преимущества Вашего бренда. Например, обязательства по обслуживанию клиентов.</value>
+  </data>
+  <data name="PromoBoxTagline" xml:space="preserve">
+    <value>Например, название компании и слоган.</value>
+  </data>
+  <data name="PromoBoxTreat" xml:space="preserve">
+    <value>Например, мы относимся к нашим клиентам так, как хотели бы, чтобы относились к нам, - с уважением, поддержкой и добротой.</value>
+  </data>
+  <data name="GBDetails" xml:space="preserve">
+    <value>Например, не надо платить за доставку, Вы получите свой товар в течении 5 дней с момента заказа online!</value>
+  </data>
+  <data name="GBHeadline" xml:space="preserve">
+    <value>Например, бесплатная доставка в течении 5 дней.</value>
+  </data>
+  <data name="GBMessage" xml:space="preserve">
+    <value>Бесплатная доставка? Беспроблемное возвращается? Если у вас есть услуги, которые вы можете гарантировать своим клиентам, вот место, чтобы продвигать его.</value>
+  </data>
+  <data name="GBTitle" xml:space="preserve">
+    <value>Например, быстрая и бесплатная перевозка!</value>
+  </data>
+</root>

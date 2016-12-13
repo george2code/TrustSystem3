@@ -1,0 +1,272 @@
+﻿.navbar-brand { background: url("/images/logo.png") no-repeat 0 center;}
+.search-panel { padding-bottom: 3px; background: url("/images/bg_subnav.jpg") left bottom repeat-x;border-bottom: 0;}
+
+
+.navbar-inverse .navbar-nav > li > a.logout {
+    padding: 5px 15px;
+    margin-top: 8px;
+}
+.navbar-inverse .navbar-nav > li > a.user-title {
+    color: #fff;
+}
+
+.header-links a {
+    color: #fff !important;
+}
+.header-links a:hover {
+    color: #03a9f4 !important;
+}
+
+.social-icons-login button.vk,
+.social-icons-login a.vk { background: url("/images/icons/ico_login_vk.png") no-repeat center top; }
+.social-icons-login a.tw { background: url("/images/icons/ico_login_tw.png") no-repeat center top; }
+.social-icons-login button.fb,
+.social-icons-login a.fb { background: url("/images/icons/ico_login_fb.png") no-repeat center top; }
+
+.social-icons-login button {
+    border: none;
+    height: 48px;
+     font-size: 12px;
+    outline: medium none;
+    padding-top: 50px;
+    text-decoration: none;
+    width: 70px;
+    color: #2981a4;
+}
+
+.social-icons-login a.ml { background: url("/images/icons/ico_login_mail.png") no-repeat center top; }
+.social-icons-login button.gl,
+.social-icons-login a.gl { background: url("/images/icons/ico_login_google.png") no-repeat center top; background-size: 48px 48px; }
+
+.best .column-head { background: url("/images/ten_best.png") no-repeat left center; }
+.worse .column-head { background: url("/images/ten_worse.png") no-repeat left center; }
+.tags {background: url("/images/line1.png") repeat-x 0 top; padding-top: 15px; }
+
+
+
+footer .container {
+  padding-top: 25px;
+  background: url("/images/logo_ts_footer.png") no-repeat 30px 0;
+}
+
+.rate a {
+    background: url("/images/trust_star1.png") no-repeat;
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+
+
+
+.company_categories td.name { max-width: 280px;}
+
+.actions { margin-top: 5px;}
+.actions ul { overflow: hidden;}
+.actions li { float: left;margin-right: 15px;}
+.actions li a { outline: none;}
+.actions li a:hover { color: red;}
+
+.actions li a.like.active {
+    font-weight: bold;
+}
+.actions li a.complaint.active {
+    font-weight: bold;
+    color: red;
+}
+
+/***** REVIEW *****/
+.review-header { background: url("/images/line1.png") repeat-x 0 bottom; }
+.review-header h5 { background: url("/images/ico_people.png") no-repeat; padding-left: 40px; height: 22px; line-height: 24px; }
+
+.review .message_panel .corner {background-image: url("/images/review_triangle.png"); }
+
+.review .info ul.rate a { background: url("/images/trust_star1.png") no-repeat;width: 22px; height: 22px; display: block; }
+.review .info .calendar { font-size: 11px;background: url("/images/calendar_ico.png") no-repeat; height: 16px; padding-left: 20px; }
+.review .message { color: #7d7d7d; background: url("/images/line1.png") repeat-x 0 bottom; padding-bottom: 5px; }
+
+
+.main-review .ava ul.rate a { background: url("/images/trust_star1.png") no-repeat;width: 22px;height: 22px;display: block; }
+.main-review .info .calendar { font-size: 11px;background: url("/images/calendar_ico.png") no-repeat;height: 16px;padding-left: 20px; }
+
+.company-reviews ul.rate a { background: url("/images/trust_star1.png") no-repeat; }
+.company-reviews .review_from { background: url("/images/review/check.png") no-repeat; }
+
+
+.evaluate h3 {margin-top: 0;}
+.evaluate_form {margin: 40px 0;}
+.evaluate_form .form-control {
+  max-width: 90%;}
+
+.evaluate input, textarea {margin-bottom: 20px;}
+
+.review-form .star-rating #starevaluationbutton {
+  float: left;
+  margin: 0;
+  width: 218px;
+}
+p.bia {
+  background: url("/images/review/sprite_stars_huge_old.png") no-repeat scroll 0 -50px rgba(0, 0, 0, 0);
+  display: block;
+  height: 36px;
+  width: 218px;
+}
+p.bic {
+  background: url("/images/review/sprite_stars_huge_old.png") no-repeat scroll 0 -100px rgba(0, 0, 0, 0);
+  display: block;
+  height: 36px;
+  width: 218px;
+}
+p.bie {
+  background: url("/images/review/sprite_stars_huge_old.png") no-repeat scroll 0 -150px rgba(0, 0, 0, 0);
+  display: block;
+  height: 36px;
+  width: 218px;
+}
+p.big {
+  background: url("/images/review/sprite_stars_huge_old.png")no-repeat scroll 0 -200px rgba(0, 0, 0, 0);
+  display: block;
+  height: 36px;
+  width: 218px;
+}
+p.bii {
+  background: url("/images/review/sprite_stars_huge_old.png") no-repeat scroll 0 -250px rgba(0, 0, 0, 0);
+  display: block;
+  height: 36px;
+  width: 218px;
+}
+p.biz {
+  background: url("/images/review/sprite_stars_huge_old.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  display: block;
+  height: 36px;
+  width: 218px;
+}
+.starbutton {
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 36px;
+  margin-right: 4px;
+  width: 36px;
+  outline: none;
+}
+.starbutton:hover {
+  background: none;
+}
+.star-rating .desc {
+  color: #666;
+  float: left;
+  font-size: 14px;
+  font-style: italic;
+  height: 70px;
+  line-height: 1.2em;
+  margin: 0;
+  width: 265px;
+}
+
+
+.show-review { margin-top: 30px;}
+.show-review .rate li { float: left;}
+.show-review .rate li a {
+     background-image: url("../images/icons/1436217512_star.png");
+     width: 68px;
+     height: 68px;
+    background-size: 68px;
+}
+.review-comments { margin: 20px 0 0 0;}
+
+
+
+
+
+
+.latest-review-box.main-box {
+    border: 1px solid #e7ebee;
+}
+.latest-review-box.main-box {
+    background: #ffffff none repeat scroll 0 0 padding-box;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+.latest-review-box .main-box-header {
+    min-height: 50px;
+    padding: 10px 20px;
+}
+.latest-review-box.main-box h2 {
+    font-family: "Open Sans", sans-serif;
+    color: #212121;
+    font-size: 1.3em;
+    line-height: 29px;
+    margin: 0;
+    padding: 0;
+}
+.latest-review-box.main-box .main-box-body {
+    padding: 0 20px 20px;
+}
+
+.latest-review-box li {
+    border-bottom: 2px solid #ebebeb;
+    font-size: 0.875em;
+    padding: 15px 0;
+    position: relative;
+}
+
+.latest-review-box li .img {
+    float: left;
+    margin-right: 10px;
+}
+.latest-review-box li .img img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.latest-review-box li .title {
+    margin-left: 60px;
+    padding-right: 55px;
+}
+.latest-review-box li .title a {
+    font-weight: 600;
+    color: #03a9f4;
+}
+.latest-review-box li .title .company-name a {
+    color: #2981a4;
+}
+.latest-review-box li .post-time {
+    color: #878787;
+    margin-left: 60px;
+    padding-top: 4px;
+}
+
+.latest-review-box li .time-ago {
+    color: #878787;
+    font-size: 0.875em;
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+
+.latest-review-box li .photos {
+    margin-left: 60px;
+    margin-top: 10px;
+}
+ .latest-review-box li .photos .item {
+    float: left;
+    margin-right: 2px;
+}
+.latest-review-box li .photos .item img {
+    height: 50px;
+    width: 50px;
+}
+
+.latest-review-box .rate li { padding: 0;float: left;margin-right: 4px;}
+.latest-review-box .rate { overflow: hidden;list-style-type: none;margin-bottom: 5px;}
+
+
+.box_image {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid lightgrey;
+    margin-bottom: 10px;
+}

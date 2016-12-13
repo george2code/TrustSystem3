@@ -1,0 +1,121 @@
+﻿@using TrustSystems3.CompanyWeb.Helpers
+<div class="well sidebar-nav">
+    <ul class="nav nav-pills nav-stacked" role="tablist">
+
+@*        @Html.Raw(Html.DashboardSidebarMenuLink("Dashboard", "Index", "Dashboard"))*@
+
+        <li role="presentation">
+            <a href="@Url.Action("Index", "Dashboard")">
+                <span class="glyphicon glyphicon-home"></span> @Localization.Company.MenuDashboard
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="@Url.Action("History", "Invitations")">
+                <span class="glyphicon glyphicon-envelope"></span> @Localization.Company.MenuInvitations
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="@Url.Action("Modules", "Dashboard")">
+                <span class="glyphicon glyphicon-th"></span> @Localization.Company.MenuModules
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="@Url.Action("Reviews", "Dashboard")">
+                <span class="glyphicon glyphicon-star-empty"></span> @Localization.Company.MenuReviews
+            </a>
+        </li>
+        <!--<li role="presentation"><a href="#"><span class="glyphicon glyphicon-cog"></span> Integrations</a></li>-->
+        <li role="presentation">
+            <a href="@Url.Action("Statistics", "Dashboard")">
+                <span class="glyphicon glyphicon-align-left"></span> @Localization.Company.MenuStatistics
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="@Url.Action("Information", "CompanyProfile")">
+                <span class="glyphicon glyphicon-comment"></span> @Localization.Company.MenuCompanyProfile
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="@Url.Action("UserManagement", "Dashboard")">
+                <span class="glyphicon glyphicon-user"></span> @Localization.Company.MenuUserManage
+            </a>
+        </li>
+    </ul>
+
+    <div class="additional_info">
+        <p>
+            <a href="#">Войти на публичный профиль</a>
+        </p>
+        <p>
+            Статус: <strong>Partner</strong><br />
+            Подписка истекает: 09.06.2015
+        </p>
+        <h4>Задать вопрос Службе Поддержки</h4>
+        <p>
+            Наша дружелюбная Служба Поддержки клиентов всегда рада помочь Вам. Отправьте им e-mail или свяжитесь
+            по указанному ниже телефону.
+        </p>
+        <h5>
+            UK 0800 068-0435<br />
+            US 877 941-0960
+        </h5>
+    </div>
+</div><!--/.well -->
+
+
+
+    <div data-sortable-id="index-4" class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Company management</h4>
+        </div>
+        <ul class="registered-users-list clearfix">
+            <li>
+                <a href="javascript:;"><img alt="" src="@Url.Content("~/images/users/user-5.jpg")"></a>
+                <h4 class="username text-ellipsis">
+                    Savory Posh
+                    <small>Algerian</small>
+                </h4>
+            </li>
+            <li>
+                <a href="javascript:;"><img alt="" src="@Url.Content("~/images/users/user-3.jpg")"></a>
+                <h4 class="username text-ellipsis">
+                    Ancient Caviar
+                    <small>Korean</small>
+                </h4>
+            </li>
+            <li>
+                <a href="javascript:;"><img alt="" src="@Url.Content("~/images/users/user-1.jpg")"></a>
+                <h4 class="username text-ellipsis">
+                    Marble Lungs
+                    <small>Indian</small>
+                </h4>
+            </li>
+            <li>
+                <a href="javascript:;"><img alt="" src="@Url.Content("~/images/users/user-8.jpg")"></a>
+                <h4 class="username text-ellipsis">
+                    Blank Bloke
+                    <small>Japanese</small>
+                </h4>
+            </li>
+            <li>
+                <a href="javascript:;"><img alt="" src="@Url.Content("~/images/users/user-2.jpg")"></a>
+                <h4 class="username text-ellipsis">
+                    Hip Sculling
+                    <small>Cuban</small>
+                </h4>
+            </li>
+            <li>
+                <a href="javascript:;"><img alt="" src="@Url.Content("~/images/users/user-4.jpg")"></a>
+                <h4 class="username text-ellipsis">
+                    Flat Moon
+                    <small>Nepalese</small>
+                </h4>
+            </li>
+        </ul>
+        <div class="panel-footer text-center">
+            <a class="text-inverse" href="@Url.Action("UserManagement", "Dashboard")">Invite user</a>
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="TSModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="TSModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="TSModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="TSModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="TSModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="TSModel.AspNetUsers" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="TSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="TSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <EntitySet Name="Reviews" EntityType="TSModel.Review" />
+    <EntitySet Name="ReviewComments" EntityType="TSModel.ReviewComment" />
+    <AssociationSet Name="ReviewReviewComment" Association="TSModel.ReviewReviewComment">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewComment" EntitySet="ReviewComments" />
+    </AssociationSet>
+    <EntitySet Name="RootCategories" EntityType="TSModel.RootCategory" />
+    <EntitySet Name="Categories" EntityType="TSModel.Category" />
+    <AssociationSet Name="RootCategoryCategory" Association="TSModel.RootCategoryCategory">
+      <End Role="RootCategory" EntitySet="RootCategories" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <EntitySet Name="ReviewUsefulls" EntityType="TSModel.ReviewUsefull" />
+    <AssociationSet Name="ReviewReviewUsefull" Association="TSModel.ReviewReviewUsefull">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewUsefull" EntitySet="ReviewUsefulls" />
+    </AssociationSet>
+    <EntitySet Name="Cities" EntityType="TSModel.Cities" />
+    <EntitySet Name="Companies" EntityType="TSModel.Companies" />
+    <EntitySet Name="CompanyUsers" EntityType="TSModel.CompanyUsers" />
+    <EntitySet Name="Contacts" EntityType="TSModel.Contacts" />
+    <AssociationSet Name="FK_ContactCity" Association="TSModel.FK_ContactCity">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCompanyUser" Association="TSModel.FK_CompanyCompanyUser">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="CompanyUsers" EntitySet="CompanyUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyReview" Association="TSModel.FK_CompanyReview">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyCategory" Association="TSModel.CompanyCategory">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Companies" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles1" Association="TSModel.AspNetUserRoles1">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Invitations" EntityType="TSModel.Invitation" />
+    <AssociationSet Name="CompaniesInvitation" Association="TSModel.CompaniesInvitation">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Invitation" EntitySet="Invitations" />
+    </AssociationSet>
+    <EntitySet Name="Templates" EntityType="TSModel.Template" />
+    <EntitySet Name="AfsSettings" EntityType="TSModel.Afs" />
+    <AssociationSet Name="AfsCompanies" Association="TSModel.AfsCompanies">
+      <End Role="Afs" EntitySet="AfsSettings" />
+      <End Role="Companies" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="AfsTemplate" Association="TSModel.AfsTemplate">
+      <End Role="Afs" EntitySet="AfsSettings" />
+      <End Role="Template" EntitySet="Templates" />
+    </AssociationSet>
+    <EntitySet Name="LoggerSet" EntityType="TSModel.Logger" />
+    <EntitySet Name="ReviewLikes" EntityType="TSModel.ReviewLike" />
+    <EntitySet Name="ReviewWarnings" EntityType="TSModel.ReviewWarning" />
+    <AssociationSet Name="ReviewReviewLike" Association="TSModel.ReviewReviewLike">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewLike" EntitySet="ReviewLikes" />
+    </AssociationSet>
+    <AssociationSet Name="ReviewReviewWarning" Association="TSModel.ReviewReviewWarning">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewWarning" EntitySet="ReviewWarnings" />
+    </AssociationSet>
+    <EntitySet Name="CompanyBoxes" EntityType="TSModel.CompanyBox" />
+    <AssociationSet Name="CompaniesCompanyBox" Association="TSModel.CompaniesCompanyBox">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="CompanyBox" EntitySet="CompanyBoxes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EnumType Name="CountryType">
+    <Member Name="Russia" Value="7" />
+    <Member Name="Ukraine" Value="380" />
+    <Member Name="Belarus" Value="375" />
+    <Member Name="USA" Value="1" />
+  </EnumType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers1" Relationship="TSModel.AspNetUserRoles1" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="TSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="TSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="TSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="TSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles1" Relationship="TSModel.AspNetUserRoles1" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <Property Name="FirstName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="true" Precision="3" />
+    <Property Name="About" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CityId" Type="Int32" Nullable="true" />
+    <Property Name="Avatar" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" Nullable="true" FixedLength="false" Unicode="true" MaxLength="10" />
+    <Property Name="ExternalAddress" Type="String" Nullable="true" FixedLength="false" MaxLength="256" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="TSModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TSModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="TSModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TSModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" DefaultValue="0" />
+    <Property Name="OrderId" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ReviewShort" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ReviewFull" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ReviewComment" Relationship="TSModel.ReviewReviewComment" FromRole="Review" ToRole="ReviewComment" />
+    <NavigationProperty Name="ReviewUsefull" Relationship="TSModel.ReviewReviewUsefull" FromRole="Review" ToRole="ReviewUsefull" />
+    <NavigationProperty Name="Companies" Relationship="TSModel.FK_CompanyReview" FromRole="Review" ToRole="Companies" />
+    <Property Name="IsConfirmed" Type="Boolean" Nullable="false" DefaultValue="False" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="true" Precision="3" />
+    <Property Name="DatePublished" Type="DateTime" Nullable="true" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Nullable="true" Precision="3" />
+    <NavigationProperty Name="ReviewLike" Relationship="TSModel.ReviewReviewLike" FromRole="Review" ToRole="ReviewLike" />
+    <NavigationProperty Name="ReviewWarning" Relationship="TSModel.ReviewReviewWarning" FromRole="Review" ToRole="ReviewWarning" />
+  </EntityType>
+  <EntityType Name="ReviewComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Review" Relationship="TSModel.ReviewReviewComment" FromRole="ReviewComment" ToRole="Review" />
+    <Property Name="ReviewId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="ReviewReviewComment">
+    <End Type="TSModel.Review" Role="Review" Multiplicity="1" />
+    <End Type="TSModel.ReviewComment" Role="ReviewComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewComment">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RootCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Icon" Type="String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Category" Relationship="TSModel.RootCategoryCategory" FromRole="RootCategory" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="RootCategory" Relationship="TSModel.RootCategoryCategory" FromRole="Category" ToRole="RootCategory" />
+    <Property Name="RootCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyCategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Companies" Relationship="TSModel.CompanyCategory" FromRole="Category" ToRole="Companies" />
+  </EntityType>
+  <Association Name="RootCategoryCategory">
+    <End Type="TSModel.RootCategory" Role="RootCategory" Multiplicity="1" />
+    <End Type="TSModel.Category" Role="Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RootCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="RootCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ReviewUsefull">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Review" Relationship="TSModel.ReviewReviewUsefull" FromRole="ReviewUsefull" ToRole="Review" />
+    <Property Name="ReviewId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="ReviewReviewUsefull">
+    <End Type="TSModel.Review" Role="Review" Multiplicity="1" />
+    <End Type="TSModel.ReviewUsefull" Role="ReviewUsefull" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewUsefull">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contacts" Relationship="TSModel.FK_ContactCity" FromRole="Cities" ToRole="Contacts" />
+  </EntityType>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Slug" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CompanyUsers" Relationship="TSModel.FK_CompanyCompanyUser" FromRole="Companies" ToRole="CompanyUsers" />
+    <NavigationProperty Name="Reviews" Relationship="TSModel.FK_CompanyReview" FromRole="Companies" ToRole="Review" />
+    <NavigationProperty Name="Categories" Relationship="TSModel.CompanyCategory" FromRole="Companies" ToRole="Category" />
+    <Property Name="IsOrderRequired" Type="Boolean" Nullable="false" DefaultValue="False" />
+    <NavigationProperty Name="Invitation" Relationship="TSModel.CompaniesInvitation" FromRole="Companies" ToRole="Invitation" />
+    <NavigationProperty Name="Afs" Relationship="TSModel.AfsCompanies" FromRole="Companies" ToRole="Afs" />
+    <NavigationProperty Name="CompanyBox" Relationship="TSModel.CompaniesCompanyBox" FromRole="Companies" ToRole="CompanyBox" />
+  </EntityType>
+  <EntityType Name="CompanyUsers">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Companies" Relationship="TSModel.FK_CompanyCompanyUser" FromRole="CompanyUsers" ToRole="Companies" />
+    <Property Name="UserState" Type="TSModel.UserStateType" Nullable="false" annotation:StoreGeneratedPattern="None" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cities" Relationship="TSModel.FK_ContactCity" FromRole="Contacts" ToRole="Cities" />
+  </EntityType>
+  <Association Name="FK_ContactCity">
+    <End Type="TSModel.Contacts" Role="Contacts" Multiplicity="1" />
+    <End Type="TSModel.Cities" Role="Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="Contact_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCompanyUser">
+    <End Type="TSModel.Companies" Role="Companies" Multiplicity="1" />
+    <End Type="TSModel.CompanyUsers" Role="CompanyUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyUsers">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyReview">
+    <End Type="TSModel.Companies" Role="Companies" Multiplicity="1" />
+    <End Type="TSModel.Review" Role="Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyCategory">
+    <End Type="TSModel.Category" Role="Category" Multiplicity="*" />
+    <End Type="TSModel.Companies" Role="Companies" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles1">
+    <End Type="TSModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="TSModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EnumType Name="UserStateType">
+    <Member Name="Admin" Value="1" />
+    <Member Name="Pending" Value="2" />
+    <Member Name="Approved" Value="3" />
+  </EnumType>
+  <EntityType Name="Invitation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Companies" Relationship="TSModel.CompaniesInvitation" FromRole="Invitation" ToRole="Companies" />
+    <Property Name="CompaniesId" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="SenderName" Type="String" Nullable="true" MaxLength="100" />
+    <Property Name="FromName" Type="String" Nullable="true" MaxLength="100" />
+    <Property Name="FromEmail" Type="String" Nullable="true" MaxLength="100" />
+    <Property Name="Status" Type="TSModel.InivationStatusType" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+    <Property Name="SentAt" Type="DateTime" Nullable="true" />
+    <Property Name="ReferenceId" Type="String" ConcurrencyMode="None" MaxLength="50" Nullable="false" />
+    <Property Name="DeliveryDate" Type="DateTime" Nullable="true" />
+  </EntityType>
+  <Association Name="CompaniesInvitation">
+    <End Type="TSModel.Companies" Role="Companies" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TSModel.Invitation" Role="Invitation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invitation">
+        <PropertyRef Name="CompaniesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="InivationStatusType" UnderlyingType="Byte">
+    <Member Name="Pending" />
+    <Member Name="Sent" />
+    <Member Name="Error" />
+    <Member Name="Canceled" />
+    <Member Name="Reviewed" />
+  </EnumType>
+  <EntityType Name="Template">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Language" Type="Int32" Nullable="false" DefaultValue="7" />
+    <Property Name="Delay" Type="Int32" Nullable="false" DefaultValue="7" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="250" />
+    <Property Name="Body" Type="String" Nullable="false" />
+    <NavigationProperty Name="Afs" Relationship="TSModel.AfsTemplate" FromRole="Template" ToRole="Afs" />
+  </EntityType>
+  <EntityType Name="Afs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SenderName" Type="String" Nullable="false" MaxLength="250" />
+    <Property Name="InviteFrequency" Type="TSModel.InviteFrequencyType" Nullable="false" />
+    <Property Name="TemplateDelay" Type="Int32" Nullable="false" DefaultValue="7" />
+    <Property Name="TemplateSubject" Type="String" Nullable="true" MaxLength="250" />
+    <Property Name="TemplateBody" Type="String" Nullable="true" />
+    <NavigationProperty Name="Companies" Relationship="TSModel.AfsCompanies" FromRole="Afs" ToRole="Companies" />
+    <NavigationProperty Name="Template" Relationship="TSModel.AfsTemplate" FromRole="Afs" ToRole="Template" />
+  </EntityType>
+  <Association Name="AfsCompanies">
+    <End Type="TSModel.Afs" Role="Afs" Multiplicity="0..1" />
+    <End Type="TSModel.Companies" Role="Companies" Multiplicity="1" />
+  </Association>
+  <Association Name="AfsTemplate">
+    <End Type="TSModel.Afs" Role="Afs" Multiplicity="*" />
+    <End Type="TSModel.Template" Role="Template" Multiplicity="1" />
+  </Association>
+  <EnumType Name="InviteFrequencyType" UnderlyingType="Byte">
+    <Member Name="Always" Value="1" />
+    <Member Name="OnceAtDay" Value="2" />
+    <Member Name="Once" Value="3" />
+  </EnumType>
+  <EntityType Name="Logger">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="TSModel.LogType" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="250" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EnumType Name="LogType" UnderlyingType="Byte">
+    <Member Name="Event" />
+    <Member Name="Error" />
+    <Member Name="Client" />
+    <Member Name="Company" />
+    <Member Name="SchedulerEmailJob" />
+    <Member Name="SchedulerInviteJob" />
+  </EnumType>
+  <EntityType Name="ReviewLike">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" FixedLength="false" MaxLength="Max" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Review" Relationship="TSModel.ReviewReviewLike" FromRole="ReviewLike" ToRole="Review" />
+    <Property Name="ReviewId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReviewWarning">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" FixedLength="false" MaxLength="Max" Unicode="true" />
+    <Property Name="Comment" Type="String" Nullable="false" FixedLength="false" MaxLength="500" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Review" Relationship="TSModel.ReviewReviewWarning" FromRole="ReviewWarning" ToRole="Review" />
+    <Property Name="ReviewId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ReviewReviewLike">
+    <End Type="TSModel.Review" Role="Review" Multiplicity="1" />
+    <End Type="TSModel.ReviewLike" Role="ReviewLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewLike">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReviewReviewWarning">
+    <End Type="TSModel.Review" Role="Review" Multiplicity="1" />
+    <End Type="TSModel.ReviewWarning" Role="ReviewWarning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewWarning">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CompanyBox">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BoxType" Type="TSModel.CompanyBoxType" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" FixedLength="false" MaxLength="100" Unicode="true" />
+    <Property Name="Message" Type="String" Nullable="false" FixedLength="false" MaxLength="100" Unicode="true" />
+    <Property Name="Details" Type="String" Nullable="false" FixedLength="false" MaxLength="250" Unicode="true" />
+    <NavigationProperty Name="Companies" Relationship="TSModel.CompaniesCompanyBox" FromRole="CompanyBox" ToRole="Companies" />
+    <Property Name="CompaniesId" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" Nullable="true" />
+  </EntityType>
+  <EnumType Name="CompanyBoxType">
+    <Member Name="Promotion" Value="0" />
+    <Member Name="Guarantee" Value="1" />
+  </EnumType>
+  <Association Name="CompaniesCompanyBox">
+    <End Type="TSModel.Companies" Role="Companies" Multiplicity="1" />
+    <End Type="TSModel.CompanyBox" Role="CompanyBox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyBox">
+        <PropertyRef Name="CompaniesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

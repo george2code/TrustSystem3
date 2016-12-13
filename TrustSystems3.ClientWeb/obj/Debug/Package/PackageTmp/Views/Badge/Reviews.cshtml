@@ -1,0 +1,30 @@
+﻿@using System.Web.Mvc.Html
+@model List<TrustSystems3.ClientWeb.Models.Base.ReviewModel>
+
+@{
+    ViewBag.Title = "Reviews";
+}
+
+<div class="main-box feed latest-review-box">
+    <header class="main-box-header clearfix">
+        <h2 class="text-center">@ViewBag.RateStr</h2>
+        <br />
+        <div class="text-center">
+            <ul class="rate" style="display: inline-block;">
+                @for (int i = 0; i < ViewBag.Rating; i++) {
+                    <li><a href="#"></a></li>
+                }
+            </ul>
+            <p>@ViewBag.ReviewCount клиента(ов) написали отзыв на trustsystem.ru</p>
+        </div>
+        <hr />
+    </header>
+    <div class="main-box-body clearfix">
+        <!-- Latest reviews -->
+        <ul>
+            @foreach (var item in Model) {
+                @Html.Partial("Review/_PartialLatestReviews", item)
+            }
+        </ul>
+    </div>
+</div>

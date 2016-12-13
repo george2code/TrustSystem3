@@ -1,0 +1,12 @@
+D:\Development\TrustSystem\TrustSystems3.Localization\bin\Debug\TrustSystems3.Localization.dll
+D:\Development\TrustSystem\TrustSystems3.Localization\bin\Debug\TrustSystems3.Localization.pdb
+D:\Development\TrustSystem\TrustSystems3.Localization\bin\Debug\en\TrustSystems3.Localization.resources.dll
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\Localization.Categories.resources
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\Localization.Client.resources
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\Localization.Categories.en.resources
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\Localization.Client.en.resources
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\Localization.csproj.GenerateResource.Cache
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\en\TrustSystems3.Localization.resources.dll
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\TrustSystems3.Localization.dll
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\TrustSystems3.Localization.pdb
+D:\Development\TrustSystem\TrustSystems3.Localization\obj\Debug\Localization.csprojResolveAssemblyReference.cache

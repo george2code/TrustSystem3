@@ -1,0 +1,57 @@
+﻿@using PagedList.Mvc
+@model PagedList.PagedList<TrustSystems3.ClientWeb.Models.SearchItemModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+
+<div class="row">
+
+    <div class="col-md-12 categories">
+        <h2>Результаты поиска для "@ViewBag.SearchValue"</h2>
+        <br/>
+        <br />
+
+        @{
+            foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 company-item">
+                        <p>
+                            <strong><a href="/review/@item.CompanySlug">@item.CompanyName</a></strong>
+                        </p>
+                        
+                            <div class="clearfix">
+                                <ul class="rate pull-left">
+                                    @for (int j = 0; j < item.CompanyRating; j++)
+                                    {
+                                        <li><a href="#"></a></li>
+                                    }
+                                </ul>
+                                <p>@item.CompanyReviewsCount отзывов | Trustcore @item.CompanyRating</p>
+                            </div>
+
+                            <p>@item.CompanyDescription</p>
+                        
+                    </div>
+                </div>
+
+                <!-- company_item -->
+            }
+        }
+
+
+        <div style="text-align: center;">
+            @Html.PagedListPager(Model, page => Url.Action("Search", "Home",
+                    new { txtValue = ViewBag.SearchValue, page }),
+                    new PagedListRenderOptions
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Назад",
+                        LinkToNextPageFormat = "Вперед",
+                        LinkToLastPageFormat = ">>"
+                    })
+        </div>
+    </div>
+</div>

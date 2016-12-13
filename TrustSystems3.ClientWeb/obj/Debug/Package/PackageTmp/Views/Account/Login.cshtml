@@ -1,0 +1,87 @@
+﻿@using TrustSystems3.ClientWeb.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+
+
+<div class="container">
+    <!--Reg Block-->
+    <div class="reg-block">
+        <div class="reg-block-header">
+            <h2>Sign In</h2>
+            <ul class="social-icons text-center">
+                <li>
+                    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button title="Log in using your Vkontakte account" value="Vkontakte" name="provider" data-original-title="Twitter" id="Vkontakte" 
+                                class="rounded-x social_vkontakte" type="submit"></button>
+                    }
+                </li>
+                <li>
+                    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button title="Log in using your Google account" value="Google" name="provider" id="Google" class="rounded-x social_googleplus" 
+                                data-original-title="Google Plus" type="submit"></button>
+                    }
+                </li>
+                <li class="fb">
+                    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button title="Log in using your Facebook account" value="Facebook" data-original-title="Facebook" name="provider" id="Facebook" 
+                                class="rounded-x social_facebook" type="submit"></button>
+                    }
+                </li>
+            </ul>
+            <p>Don't Have Account? Click @Html.ActionLink("Sign Up", "Register") to registration.</p>
+        </div>
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                @Html.TextBoxFor(m => m.Email, new {@class = "form-control", placeholder = "Email"})
+            </div>
+            
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+            </div>
+            <hr>
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    <p>Always stay signed in</p>
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <button class="btn btn-success btn-block" type="submit">Log In</button>
+                </div>
+            </div>
+        }
+    </div>
+    <!--End Reg Block-->
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script src="@Url.Content("~/Scripts/unify/jquery.backstretch.min.js")"></script>
+<script type="text/javascript">
+    $.backstretch("@Url.Content("~/images/unify/bg/19.jpg")");
+</script>

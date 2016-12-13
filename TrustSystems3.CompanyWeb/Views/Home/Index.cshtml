@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- Intro -->
+<div class="row text-center hp-tour-title">
+    <h1 id="anim-trigger">TrustSystems in a nutshell</h1>
+    <p>TrustSystems is an open review community that builds trust and transparency between consumers and businesses</p>
+</div>
+
+
+<!-- Circles -->
+<div class="row home-circles">
+    <div class="col-md-2 text-center col-lg-offset-1">
+        <div>
+            <img src="@Url.Content("~/images/home-circles1.jpg")" alt="">
+        </div>
+
+        <div class="text">
+            <h3 class="title">Discovery</h3>
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                <div class="field-items">
+                    <div class="field-item even">
+                        <p>Collect reviews effortlessly to find out what people really think of your brand </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 text-center">
+        <div>
+            <img src="@Url.Content("~/images/home-circles2.jpg")" alt="">
+        </div>
+
+        <div class="text">
+            <h3 class="title">Acquisition</h3>
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                <div class="field-items">
+                    <div class="field-item even">
+                        <p>Acquire cost-effective new customers by proving you are trustworthy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 text-center">
+        <div>
+            <img src="@Url.Content("~/images/home-circles3.jpg")" alt="">
+        </div>
+
+        <div class="text">
+            <h3 class="title">Retention</h3>
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                <div class="field-items">
+                    <div class="field-item even">
+                        <p>Build your relationships to keep customers coming back for more</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 text-center">
+        <div>
+            <img src="@Url.Content("~/images/home-circles4.jpg")" alt="">
+        </div>
+
+        <div class="text">
+            <h3 class="title">Advocacy</h3>
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                <div class="field-items">
+                    <div class="field-item even">
+                        <p>Help your new customer advocates share the love with their friends</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 text-center hp-spotlights">
+        <div class="content">
+            <h2>In the spotlight</h2>
+            <p>
+                'Trusted Insights' is a powerful new service from Trustpilot. Make informed decisions based on segmented
+                customer review insights and drive purchase decisions by giving customers relevant reviews throughout their
+                purchasing journey
+            </p>
+            <p><a href="#" target="_blank" title="Find out more now!" class="btn btn-primary btn-lg">Find out more now!</a></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="video-inner">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="content">
+                <h2>Over 90,000 businesses have been reviewed through Trustpilot</h2>
+                <p>Find out why it’s time to join them...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row statistics-testimonials">
+        <div class="col-md-4 col-md-offset-2">
+            <div class="row">
+                <div class="col-md-6 no-pd-right">
+                    <div id="customer-reviews" class="customer-stat">
+                        <span class="stat-figure numinate">10.0M</span>
+                        <span class="stat-title">customer reviews</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="business-users" class="customer-stat">
+                        <span class="stat-figure numinate">117</span>
+                        <span class="sub-stat">% growth </span>
+                        <span class="stat-title">in the consumer reviewer base in 2013</span>
+                    </div>
+                    <div id="customer-stat-countries" class="customer-stat">
+                        <span class="stat-figure numinate">24</span>
+                        <span class="stat-title">countries </span>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end statistics -->
+
+        <div class="col-md-4">
+            @for (var i = 0; i < 2; i++)
+            {
+                <div class="row hp-testimonial">
+                    <div class="col-md-3 text-center">
+                        <img width="96" height="96" alt="" 
+                             src="http://business.trustpilot.com/sites/default/files/homepage-testimonial-images/jose.png"/>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="hp-testimonial-tx">
+                            <p>“Making that connection with a customer is so important to us, and reviews make it happen.”</p>
+                            <span class="customer-name">Jose Prendes, CEO, PureFormulas</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a class="btn btn-warning btn-lg" title="Case studies" href="#">Read all our case studies</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Companies -->
+@Html.Partial("Partial/_PartialCompaniesLogo")

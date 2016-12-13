@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Settings";
+}
+
+<h1 class="title">Number of invitations per user</h1>
+
+<p>
+    Trustpilot automatically cancels invitations if a customer has already reviewed the company or if we have already
+    sent an invitation for the customer and the order number.
+</p>
+<p>
+    Apart from this you can set a limit on how often returning customers receive invitations. Note that this setting
+    will not work if you invite the same person many times immediately after each other:
+</p>
+
+<br />
+
+<form>
+    <div class="radio">
+        <label>
+            <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">
+            Invite your customer to review after every purchase
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">
+            No matter how often your customer makes a purchase, invite your customer no more than once in a specific number of days
+            Once in <input type="text" size="2" value="1" />  day(s)
+        </label>
+    </div>
+    <div class="radio disabled">
+        <label>
+            <input type="radio" disabled="" value="option3" id="optionsRadios3" name="optionsRadios">
+            Only invite your customer once.
+        </label>
+    </div>
+
+    <br />
+
+    <input type="submit" class="btn btn-primary" value="Update" />
+</form>
+

@@ -1,0 +1,121 @@
+﻿@using TrustSystems3
+@model List<Invitation>
+@{
+    ViewBag.Title = "History";
+}
+
+<h1 class="title">@ViewBag.Title</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                Select Filter
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Email</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Reference ID</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Status</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Date</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="pull-right">
+            <input type="button" class="btn btn-success btn-export" value="Export" />
+            <input type="button" class="btn btn-danger" value="Cancel queued" />
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <h5>Showing 1-20</h5>
+    </div>
+    <div class="col-md-6">
+        <nav class="pull-right">
+            <ul class="pagination" style="margin: 0;">
+                <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Customer email</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Delivery</th>
+                <th class="text-center">Reference ID</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Email</td>
+                    <td class="text-success state-@item.Status">
+                        <span class="label">@Enum.GetName(typeof (InivationStatusType), item.Status)</span>
+                    </td>
+                    <td>@item.CreatedAt.ToString("d")</td>
+                    <td>@item.DeliveryDate.Value.ToString("d")</td>
+                    <td class="text-center">@item.ReferenceId</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h5>Showing 1-20</h5>
+    </div>
+    <div class="col-md-6">
+        <nav class="pull-right">
+            <ul class="pagination" style="margin: 0;">
+                <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<br />
+
+
+@*<script type="text/javascript">*@
+@*    $(document).ready(function()*@
+@*    {*@
+@*        $('.btn-export').click(function() {*@
+@*            $.ajax({*@
+@*                url: "invitations/export",*@
+@*                type: "GET",*@
+@*                dataType: 'json'*@
+@*            }).done(function (data) {*@
+@*                location.reload();*@
+@*            });*@
+@*        });*@
+@*    });*@
+@*</script>*@
+

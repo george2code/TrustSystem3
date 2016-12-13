@@ -1,0 +1,10 @@
+D:\Development\TrustSystems3\TrustSystems3.BL\bin\Debug\TrustSystems3.BL.dll
+D:\Development\TrustSystems3\TrustSystems3.BL\bin\Debug\TrustSystems3.BL.pdb
+D:\Development\TrustSystems3\TrustSystems3.BL\obj\Debug\TrustSystems3.BL.dll
+D:\Development\TrustSystems3\TrustSystems3.BL\obj\Debug\TrustSystems3.BL.pdb
+D:\Development\TrustSystems3\TrustSystems3.BL\obj\Debug\TrustSystems3.BL.csprojResolveAssemblyReference.cache
+D:\Development\TrustSystem\TrustSystems3.BL\bin\Debug\TrustSystems3.BL.dll
+D:\Development\TrustSystem\TrustSystems3.BL\bin\Debug\TrustSystems3.BL.pdb
+D:\Development\TrustSystem\TrustSystems3.BL\obj\Debug\TrustSystems3.BL.dll
+D:\Development\TrustSystem\TrustSystems3.BL\obj\Debug\TrustSystems3.BL.pdb
+D:\Development\TrustSystem\TrustSystems3.BL\obj\Debug\TrustSystems3.BL.csprojResolveAssemblyReference.cache

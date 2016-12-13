@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "All";
+}
+
+<div class="container cr-product">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title">Взгляните на наши ресурсы. Узнайте и вдохновитесь</h1>
+        </div>
+    </div>
+
+
+    <div class="row product-info-item">
+        <div class="col-md-4 text-center">
+            <img src="@Url.Content("~/images/product/cl-letters.png")" alt="">
+        </div>
+        <div class="col-md-8">
+            <h3>Наш опыт создания приглашений</h3>
+            <p>
+                Пригласить Ваших клиентов написать отзыв о Вашей компании на Trust Systems довольно легко, но создать
+                эффективное e-mail приглашение достаточно сложно. Вам необходимо, чтобы Ваше приглашение к созданию отзыва
+                сработало…
+            </p>
+            <p>
+                @Html.ActionLink("Узнайте больше", "Experience", "Resources", null, new { @class = "more" })
+            </p>
+        </div>
+    </div>
+
+    <div class="row product-info-item">
+        <div class="col-md-4 text-center">
+            <img src="@Url.Content("~/images/resources/cl-simbox.png")" alt="">
+        </div>
+        <div class="col-md-8">
+            <h3>Брошюра – как выбрать онлайн платформу отзывов</h3>
+            <p>Загрузите нашу бесплатную брошюру, которая поможет Вам выбрать правильную онлайн платформу отзывов.</p>
+            <p>
+                @Html.ActionLink("Узнайте больше", "Brochure", "Resources", null, new { @class = "more" })
+            </p>
+        </div>
+    </div>
+
+    <div class="row product-info-item">
+        <div class="col-md-4 text-center">
+            <img src="@Url.Content("~/images/product/cl-y.png")" alt="">
+        </div>
+        <div class="col-md-8">
+            <h3>Примеры</h3>
+            <p>
+                Виджеты Trust systems можно увидеть в интернете на сайте наших клиентов. Взгляните на эти примеры и увидьте,
+                как просто поставить наш виджет.
+            </p>
+            <p>
+                @Html.ActionLink("Узнайте больше", "Examples", "Resources", null, new { @class = "more" })
+            </p>
+        </div>
+    </div>
+
+    <div class="row product-info-item last">
+        <div class="col-md-4 text-center">
+            <img src="@Url.Content("~/images/resources/cl-sells.png")" alt="">
+        </div>
+        <div class="col-md-8">
+            <h3>Рассчитайте рост продаж</h3>
+            <p>
+                Снова и снова мониторинг статистики наших клиентов показывает повышение в уровне конверсии / масштабе продаж
+                с 7,5 % до 60 %. Владельцы интернет магазинов видят повышение уровня конверсии во время тестирования
+            </p>
+            <p>
+                @Html.ActionLink("Узнайте больше", "Calculate", "Resources", null, new { @class = "more" })
+            </p>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,86 @@
+﻿@using TrustSystems3.BL.Utils
+@model TrustSystems3.ClientWeb.Models.HomeViewModel
+
+<div class="row main-stat">
+    <div class="col-md-6 best">
+        <div class="column-head">
+            <h3>@Localization.Client.TitleTopBestInCategory</h3>
+            <a href="#" class="top_category_name">Детские товары</a>
+        </div>
+
+        <table class="table table-striped">
+            <tbody></tbody>
+        </table>
+    </div><!-- left column -->
+
+
+    <div class="col-md-6 worse">
+        <div class="column-head">
+            <h3>@Localization.Client.TitleWorseInCategory</h3>
+            <a href="#" class="top_category_name">Детские товары</a>
+        </div>
+
+        <table class="table table-striped">
+            <tbody></tbody>
+        </table>
+    </div><!-- right column -->
+</div>
+
+
+
+
+
+<div class="row tags">
+    <div class="col-md-9 tag-list">
+        <ul class="nav nav-pills" role="tablist">
+            @for (int i = 0; i < Model.RootCategoryList.Count; i++)
+            {
+                <li role="presentation">
+                    <a href="/category/@Model.RootCategoryList[i].Slug" data-value="@Model.RootCategoryList[i].Id">
+                        @Localization.Categories.ResourceManager.GetString(ResourceUtils.GetRootCategory(Model.RootCategoryList[i].Name))
+                        <span class="badge">@Model.RootCategoryList[i].Category.Sum(x => x.Companies.Count)</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        @Html.ActionLink(Localization.Client.LinkAllCategories, "Index", "Category", null, new {@class = "pull-right"})
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $('.tag-list a').click(function(e) {
+            e.preventDefault();
+
+            // render category name and link
+            $("a.top_category_name").text($(this).clone().children().remove().end().text());
+            $("a.top_category_name").attr("href", $(this).attr("href"));
+
+            // get current category
+            var categoryId = $(this).attr('data-value');
+
+            // render top companies
+            $.ajax({
+                        url: '@Url.Action("TopCategories", "Home")',
+                        type: "POST",
+                        dataType: 'json',
+                        data: {categoryId : categoryId}
+            }).done(function (data) {
+                $(".best table tbody").html(data["best"]);
+                $(".worse table tbody").html(data["worse"]);
+            });
+
+            // change active category highlight
+            $(".tag-list li").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+
+
+        $(".tag-list li:first-child a").click();
+    });
+</script>

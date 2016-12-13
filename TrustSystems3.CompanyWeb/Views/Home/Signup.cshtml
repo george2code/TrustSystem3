@@ -1,0 +1,91 @@
+﻿@model TrustSystems3.CompanyWeb.Models.Account.SignupViewModel
+@{
+    ViewBag.Title = "Signup";
+}
+
+<div class="row">
+
+    <div class="col-md-6 col-md-offset-1 register-info">
+        <br />
+        <h1>Ready to collect reviews?</h1>
+        <h3>Why wait? Let's get started!</h3>
+        <p>Join TrustSystems and reap the benefits.<br /> You'll always be able to access and reply to your reviews at no cost.</p>
+        <ul>
+            <li><span class="glyphicon glyphicon-globe"></span> Collect reviews from up to 300 customers today. It's easy.</li>
+            <li><span class="glyphicon glyphicon-thumbs-up"></span> Engage with customers by responding to feedback in one place.</li>
+            <li><span class="glyphicon glyphicon-stats"></span> Boost sales by displaying reviews on your website to drive conversion.</li>
+            <li><span class="glyphicon glyphicon-eye-open"></span> Watch your Google Seller Rating climb.</li>
+        </ul>
+    </div>
+
+    <div class="col-md-3 bg-info">
+
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Start your free trial now</h4>
+                <!-- form -->
+                @using (Html.BeginForm("Signup", "Home"))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <br />
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "inputEmail", placeholder = "Email", autofocus = true })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "inputPassword", placeholder = "Password", autocomplete = "off" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password", autocomplete = "off" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Website, new { @class = "form-control", placeholder = "Website" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", placeholder = "Company name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Phone" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EnumDropDownListFor(m => m.Country, "Select country", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-success btn-lg" value="Let's get started!" />
+                    </div>
+                </div>
+                }
+            </div>
+        </div><!-- panel -->
+
+
+    </div>
+</div>

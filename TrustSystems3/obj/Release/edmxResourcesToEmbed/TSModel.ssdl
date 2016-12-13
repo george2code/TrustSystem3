@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="TSModelStoreContainer">
+    <EntitySet Name="C__MigrationHistory" EntityType="TSModel.Store.C__MigrationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetRoles" EntityType="TSModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="TSModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="TSModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="TSModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reviews" EntityType="TSModel.Store.Reviews" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReviewComments" EntityType="TSModel.Store.ReviewComments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RootCategories" EntityType="TSModel.Store.RootCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="TSModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReviewUsefulls" EntityType="TSModel.Store.ReviewUsefulls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cities" EntityType="TSModel.Store.Cities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Companies" EntityType="TSModel.Store.Companies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyUsers" EntityType="TSModel.Store.CompanyUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="TSModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Invitations" EntityType="TSModel.Store.Invitations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Templates" EntityType="TSModel.Store.Templates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AfsSettings" EntityType="TSModel.Store.AfsSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoggerSet" EntityType="TSModel.Store.LoggerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReviewLikes" EntityType="TSModel.Store.ReviewLikes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReviewWarnings" EntityType="TSModel.Store.ReviewWarnings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyBoxes" EntityType="TSModel.Store.CompanyBoxes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyCategory" EntityType="TSModel.Store.CompanyCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles1" EntityType="TSModel.Store.AspNetUserRoles1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="TSModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="TSModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="ReviewReviewComment" Association="TSModel.Store.ReviewReviewComment">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewComment" EntitySet="ReviewComments" />
+    </AssociationSet>
+    <AssociationSet Name="RootCategoryCategory" Association="TSModel.Store.RootCategoryCategory">
+      <End Role="RootCategory" EntitySet="RootCategories" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="ReviewReviewUsefull" Association="TSModel.Store.ReviewReviewUsefull">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewUsefull" EntitySet="ReviewUsefulls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactCity" Association="TSModel.Store.FK_ContactCity">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCompanyUser" Association="TSModel.Store.FK_CompanyCompanyUser">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="CompanyUsers" EntitySet="CompanyUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyReview" Association="TSModel.Store.FK_CompanyReview">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCategory_Category" Association="TSModel.Store.FK_CompanyCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CompanyCategory" EntitySet="CompanyCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCategory_Companies" Association="TSModel.Store.FK_CompanyCategory_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="CompanyCategory" EntitySet="CompanyCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles1_AspNetRoles" Association="TSModel.Store.FK_AspNetUserRoles1_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles1_AspNetUsers" Association="TSModel.Store.FK_AspNetUserRoles1_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles1" />
+    </AssociationSet>
+    <AssociationSet Name="CompaniesInvitation" Association="TSModel.Store.CompaniesInvitation">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Invitation" EntitySet="Invitations" />
+    </AssociationSet>
+    <AssociationSet Name="AfsCompanies" Association="TSModel.Store.AfsCompanies">
+      <End Role="Afs" EntitySet="AfsSettings" />
+      <End Role="Companies" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="AfsTemplate" Association="TSModel.Store.AfsTemplate">
+      <End Role="Afs" EntitySet="AfsSettings" />
+      <End Role="Template" EntitySet="Templates" />
+    </AssociationSet>
+    <AssociationSet Name="ReviewReviewLike" Association="TSModel.Store.ReviewReviewLike">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewLike" EntitySet="ReviewLikes" />
+    </AssociationSet>
+    <AssociationSet Name="ReviewReviewWarning" Association="TSModel.Store.ReviewReviewWarning">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewWarning" EntitySet="ReviewWarnings" />
+    </AssociationSet>
+    <AssociationSet Name="CompaniesCompanyBox" Association="TSModel.Store.CompaniesCompanyBox">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="CompanyBox" EntitySet="CompanyBoxes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BirthDate" Type="datetime" Nullable="true" />
+    <Property Name="About" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CityId" Type="int" Nullable="true" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Gender" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="ExternalAddress" Type="nvarchar" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Reviews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Rating" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="OrderId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ReviewShort" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ReviewFull" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsConfirmed" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="true" />
+    <Property Name="DatePublished" Type="datetime" Nullable="true" />
+    <Property Name="DateUpdated" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ReviewComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReviewId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RootCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Slug" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Icon" Type="nvarchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Slug" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RootCategoryId" Type="int" Nullable="false" />
+    <Property Name="CompanyCategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReviewUsefulls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReviewId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contact_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Slug" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Website" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Country" Type="int" Nullable="true" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Zip" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Logo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="IsOrderRequired" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="CompanyUsers">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserState" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="int" Nullable="true" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Invitations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompaniesId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="SenderName" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="FromName" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="FromEmail" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="SentAt" Type="datetime" Nullable="true" />
+    <Property Name="ReferenceId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DeliveryDate" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Templates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Language" Type="int" Nullable="false" DefaultValue="7" />
+    <Property Name="Delay" Type="int" Nullable="false" DefaultValue="7" />
+    <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfsSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenderName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="InviteFrequency" Type="tinyint" Nullable="false" />
+    <Property Name="TemplateDelay" Type="int" Nullable="false" DefaultValue="7" />
+    <Property Name="TemplateSubject" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="TemplateBody" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Companies_Id" Type="int" Nullable="false" />
+    <Property Name="Template_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoggerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReviewLikes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="ReviewId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReviewWarnings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="ReviewId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyBoxes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BoxType" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Message" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Details" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="CompaniesId" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CompanyCategory">
+    <Key>
+      <PropertyRef Name="Categories_Id" />
+      <PropertyRef Name="Companies_Id" />
+    </Key>
+    <Property Name="Categories_Id" Type="int" Nullable="false" />
+    <Property Name="Companies_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles1">
+    <Key>
+      <PropertyRef Name="AspNetRoles1_Id" />
+      <PropertyRef Name="AspNetUsers1_Id" />
+    </Key>
+    <Property Name="AspNetRoles1_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers1_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="TSModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="TSModel.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="TSModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="TSModel.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReviewReviewComment">
+    <End Role="Review" Type="TSModel.Store.Reviews" Multiplicity="1" />
+    <End Role="ReviewComment" Type="TSModel.Store.ReviewComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewComment">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RootCategoryCategory">
+    <End Role="RootCategory" Type="TSModel.Store.RootCategories" Multiplicity="1" />
+    <End Role="Category" Type="TSModel.Store.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RootCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="RootCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReviewReviewUsefull">
+    <End Role="Review" Type="TSModel.Store.Reviews" Multiplicity="1" />
+    <End Role="ReviewUsefull" Type="TSModel.Store.ReviewUsefulls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewUsefull">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactCity">
+    <End Role="Contacts" Type="TSModel.Store.Contacts" Multiplicity="1" />
+    <End Role="Cities" Type="TSModel.Store.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="Contact_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCompanyUser">
+    <End Role="Companies" Type="TSModel.Store.Companies" Multiplicity="1" />
+    <End Role="CompanyUsers" Type="TSModel.Store.CompanyUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyUsers">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyReview">
+    <End Role="Companies" Type="TSModel.Store.Companies" Multiplicity="1" />
+    <End Role="Review" Type="TSModel.Store.Reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompaniesInvitation">
+    <End Role="Companies" Type="TSModel.Store.Companies" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Invitation" Type="TSModel.Store.Invitations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invitation">
+        <PropertyRef Name="CompaniesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AfsCompanies">
+    <End Role="Afs" Type="TSModel.Store.AfsSettings" Multiplicity="*" />
+    <End Role="Companies" Type="TSModel.Store.Companies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Afs">
+        <PropertyRef Name="Companies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AfsTemplate">
+    <End Role="Afs" Type="TSModel.Store.AfsSettings" Multiplicity="*" />
+    <End Role="Template" Type="TSModel.Store.Templates" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Afs">
+        <PropertyRef Name="Template_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReviewReviewLike">
+    <End Role="Review" Type="TSModel.Store.Reviews" Multiplicity="1" />
+    <End Role="ReviewLike" Type="TSModel.Store.ReviewLikes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewLike">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReviewReviewWarning">
+    <End Role="Review" Type="TSModel.Store.Reviews" Multiplicity="1" />
+    <End Role="ReviewWarning" Type="TSModel.Store.ReviewWarnings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReviewWarning">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompaniesCompanyBox">
+    <End Role="Companies" Type="TSModel.Store.Companies" Multiplicity="1" />
+    <End Role="CompanyBox" Type="TSModel.Store.CompanyBoxes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyBox">
+        <PropertyRef Name="CompaniesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCategory_Category">
+    <End Role="Category" Type="TSModel.Store.Categories" Multiplicity="1" />
+    <End Role="CompanyCategory" Type="TSModel.Store.CompanyCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyCategory">
+        <PropertyRef Name="Categories_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCategory_Companies">
+    <End Role="CompanyCategory" Type="TSModel.Store.CompanyCategory" Multiplicity="*" />
+    <End Role="Companies" Type="TSModel.Store.Companies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyCategory">
+        <PropertyRef Name="Companies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles1_AspNetRoles">
+    <End Role="AspNetRoles" Type="TSModel.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles1" Type="TSModel.Store.AspNetUserRoles1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles1">
+        <PropertyRef Name="AspNetRoles1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles1_AspNetUsers">
+    <End Role="AspNetUserRoles1" Type="TSModel.Store.AspNetUserRoles1" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="TSModel.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles1">
+        <PropertyRef Name="AspNetUsers1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

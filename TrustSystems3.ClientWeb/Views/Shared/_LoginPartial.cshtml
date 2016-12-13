@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <ul class="nav navbar-nav header-links">
+        <li>@Html.ActionLink(Localization.Client.LinkCategories, "Index", "Category")</li>
+    </ul>
+
+
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", 
+                "UserReviews", "Review", 
+                routeValues: new { id = User.Identity.GetUserId() }, 
+                htmlAttributes: new { title = "Manage", @class="user-title" })
+        </li>
+        <li>
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger logout">Log off</a>
+        </li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav header-links">
+        <li>@Html.ActionLink(Localization.Client.LinkCategories, "Index", "Category")</li>
+        <li><a href="http://trustbusiness.azurewebsites.net/">@Localization.Client.LinkForCompanies</a></li>
+    </ul>
+
+    <ul class="top-login-links navbar-right">
+        <li>@Html.ActionLink(Localization.Client.ButtonLogin, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-success" })</li>
+        <li>@Html.ActionLink(Localization.Client.ButtonSignUp, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-danger" })</li>
+    </ul>
+}

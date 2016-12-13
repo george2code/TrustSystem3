@@ -1,0 +1,38 @@
+﻿@model TrustSystems3.CompanyWeb.Models.WizardAddInvitesModel
+@{
+    ViewBag.Title = "Add";
+}
+
+<h1>Invite your customers</h1>
+<div class="btn-group" role="group" aria-label="...">
+    @Html.ActionLink("Add Invites", "Add", "WizardImportInvites", null, new { @class = "btn btn-primary" })
+    <button type="button" class="btn btn-default">Send from</button>
+    <button type="button" class="btn btn-default">Select template</button>
+    <button type="button" class="btn btn-default">Done</button>
+</div>
+
+<h2>Copy paste from spreadsheet or text editor</h2>
+<p>
+    Copy the data from your spreadsheet or text editor and paste it into the text box below.<br />
+    The data must be separated by tabs, semicolons or commas.<br />
+    The order of the columns should be: <strong>e-mail, name, order ID.</strong>
+</p>
+<br />
+<p>You can enter up to 300 people at a time.</p>
+
+
+@using (Html.BeginForm("Add", "WizardImportInvites", FormMethod.Post))
+{
+    @Html.TextAreaFor(m => m.InvitationsData, 
+    new {
+        @placeholder="example@gmail.com, Peter Jones, 1234567890", 
+        @rows="18", 
+        @class="form-control", 
+        @style="min-width:100%"
+    })
+    <br/>
+    <input type="submit" class="btn btn-info" value="Continue" />
+}
+
+<br />
+<br />

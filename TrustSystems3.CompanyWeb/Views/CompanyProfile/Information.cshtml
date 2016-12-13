@@ -1,0 +1,107 @@
+﻿@using TrustSystems3
+@model TrustSystems3.CompanyWeb.Models.CompanyInformationViewModel
+@{
+    ViewBag.Title = "Information";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="title">@Localization.Company.CITitle</h1>
+        <p>@Localization.Company.CISubTitle</p>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-body box-lgray">
+
+               @using (Html.BeginForm("Information", "CompanyProfile"))
+               {
+                   @Html.AntiForgeryToken()
+                   @Html.ValidationSummary()
+                   <br/>
+                   <div class="form-group">
+                       <h3>@Localization.Company.CITitleSettings</h3>
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Slug)
+                       @Html.TextBoxFor(m => m.Slug, new {@class = "form-control", @id = "inputSlug", placeholder = "Please write your slug", autofocus = true})
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Website)
+                       @Html.TextBoxFor(m => m.Website, new { @class = "form-control", placeholder = "Please write your company website" })
+                   </div>
+
+                   <br/>
+
+                   <div class="form-group">
+                       <h3>@Localization.Company.CITitleContactInfo</h3>
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Name)
+                       @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Please write your company name" })
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Email)
+                       @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Please write your email" })
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.PhoneNumber)
+                       @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Please write your phone" })
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.StreetAddress)
+                       @Html.TextBoxFor(m => m.StreetAddress, new { @class = "form-control", placeholder = "Please write your street address" })
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Zip)
+                       @Html.TextBoxFor(m => m.Zip, new { @class = "form-control", placeholder = "Please write your postal/zip code" })
+                   </div>
+@*                   <div class="form-group">*@
+@*                       <label for="exampleInputPassword1">City:</label>*@
+@*                       <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Please write your city">*@
+@*                   </div>*@
+
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Country)
+@*                       @Html.EnumDropDownListFor(m => m.Country, "Select country", new { @class = "form-control" })*@
+                       @Html.DropDownList("Country", EnumHelper.GetSelectList(typeof(CountryType), Model.SelectedCountry), "Select country", new { @class = "form-control" })
+                   </div>
+
+                   <br/>
+
+                   <div class="form-group">
+                       <h3>@Localization.Company.CITitleAbout</h3>
+                   </div>
+                   <div class="form-group">
+                       @Html.LabelFor(m => m.Description)
+                       @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @rows = 8, placeholder = "Please write down the company description you'd like displayed on your profile page." })
+                   </div>
+
+                   <br/>
+
+                   <div class="form-group">
+                       <h3>@Localization.Company.CITitleUpload</h3>
+                   </div>
+                   <div class="form-group">
+                       <label for="exampleInputFile">@Localization.Company.CIDisplayScreenshot</label>
+                       <input type="file" id="exampleInputFile">
+                       <p class="help-block">Example block-level help text here.</p>
+                   </div>
+                   <div class="form-group">
+                       <label for="exampleInputFile">@Localization.Company.CIUploadCompanyImage</label>
+                       <input type="file" id="exampleInputFile">
+                       <p class="help-block">Example block-level help text here.</p>
+                   </div>
+
+                   <br/>
+                   <input type="submit" class="btn btn-primary" value="@Localization.Company.ButtonSaveChanges"/>
+               }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 text-center">
+        <br />
+        <p><a href="#">@Localization.Company.ViewProfileTs</a></p>
+        <br />
+        <img src="@Url.Content("~/images/dashboard/promotion_box.jpg")" alt="" />
+    </div>
+</div>

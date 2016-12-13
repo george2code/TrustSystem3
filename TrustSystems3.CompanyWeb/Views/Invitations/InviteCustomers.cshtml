@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Invite Customers";
+}
+
+<h1 class="title">Invite your customers</h1>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="alert alert-info" role="alert">
+            <h4>Trustpilot Company Guidelines:</h4>
+            <p>
+                All consumers must be invited equally, without exception, to leave a review 
+                about their purchase experience.
+                Reviews, in turn, should always reflect that experience accurately.
+            </p>
+            <br />
+            <p><b>@Html.ActionLink("Click here to read more", "Guidelines", "Page")</b></p>
+        </div>
+    </div>
+</div>
+
+<p>
+    Invite your customers by providing us with these customer details: email address, name and reference ID.
+    Select a file (.csv or .txt), copy paste your data or enter it manually.
+</p>
+
+<br />
+
+<div class="row">
+@*    <div class="col-md-2"><input type="text" class="btn btn-info" value="Select a file" /></div>*@
+    <div class="col-md-2 col-md-offset-2">
+        @Html.ActionLink("Copy paste", "Add", "WizardImportInvites", null, new {@class = "btn btn-info"})
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        @Html.ActionLink("Enter manually", "Add", "WizardAddInvites", null, new { @class = "btn btn-info" })
+    </div>
+</div>

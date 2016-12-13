@@ -1,0 +1,73 @@
+﻿@model TrustSystems3.CompanyWeb.Models.CompanyBoxViewModel
+@{
+    ViewBag.Title = "Guarantee";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="title">@Localization.Company.DashboardMenuGuarantee</h1>
+        <p>
+            @Localization.Company.GBMessage
+        </p>
+        <br/>
+        <div class="panel panel-default">
+            <div class="panel-body box-lgray">
+                @using (Html.BeginForm("Guarantee", "CompanyProfile", FormMethod.Post, new {enctype = "multipart/form-data"}))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", style = "max-width: 340px;", placeholder = @Localization.Company.GBTitle })
+                    <br/>
+                    @Html.LabelFor(m => m.Message)
+                    @Html.TextBoxFor(m => m.Message, new { @class = "form-control", style = "max-width: 340px;", placeholder = @Localization.Company.GBHeadline })
+                    <br/>
+                    @Html.LabelFor(m => m.Details)
+                    @Html.TextAreaFor(m => m.Details, new { @class = "form-control", @rows = 6, placeholder = @Localization.Company.GBDetails})
+                    <br/>
+                    <div class="form-group">
+                        @if (Model.ImagePath == null)
+                        {
+                            <label for="exampleInputFile">@Localization.Company.BoxPicture</label>
+                            @Html.TextBoxFor(m => m.ImageUpload, new {type = "file"})
+                            <p class="help-block">
+                                Recommended size 184 x 100px<br/> or image will be resized
+                            </p>
+                        }
+                        else
+                        {
+                            <img class="box_image" itemid="@Model.Id" src="@Url.Content(Model.ImagePath)" alt=""/>
+                            <br/>
+                            <button class="btn btn-danger remove-image">@Localization.Company.ButtonRemoveImage</button>
+                        }
+                    </div>
+                    
+                    <br/>
+                    <input type="submit" value="@Localization.Company.ButtonSaveChanges" class="btn btn-primary"/>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 text-center">
+        <br/>
+        <p><a href="#">@Localization.Company.ViewProfileTs</a>
+        </p>
+        <br/>
+        <img src="@Url.Content("~/images/dashboard/guide_guarantee.jpg")" alt=""/>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".remove-image").click(function () {
+            $.ajax({
+                url: '@Url.Action("RemoveBoxImage", "CompanyProfile")',
+                type: "POST",
+                dataType: 'json',
+                data: { boxId: $(this).attr("itemid") }
+            }).always(function(data) {
+            });
+        });
+    });
+</script>

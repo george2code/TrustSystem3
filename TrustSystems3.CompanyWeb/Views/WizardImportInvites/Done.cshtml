@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Done";
+}
+
+<h1>Invite your customers</h1>
+
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-info">Add Invites</button>
+    <button type="button" class="btn btn-info">Send from</button>
+    <button type="button" class="btn btn-info">Select template</button>
+    <button type="button" class="btn btn-primary">Done</button>
+</div>
+
+<h2>All done</h2>
+<h4>@ViewBag.Result</h4>
+<p>
+    Follow the progress of your invitations in Invitation History. If nothing appears in your Invitation History,
+    please check your e-mail, as there may be an issue preventing us from sending your invitations.
+</p>
+<br />
+@Html.ActionLink("Go to Invitation History", "History", "Invitations", null, new { @class = "btn btn-info" })

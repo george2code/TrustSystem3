@@ -1,0 +1,176 @@
+﻿@model TrustSystems3.CompanyWeb.Models.CompanyCategoriesViewModel
+@{
+    ViewBag.Title = "Categories";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="title">@Localization.Company.CategoryTitle</h1>        
+    </div>
+</div>
+
+
+<p>Чтобы Вашу компанию легче было найти, необходимо назначить ей категории.
+    Мы разрешаем Вашей компании находиться в 5 категориях, которые можно найти, выбрав одну из
+    главных (предпочтительной) категорий.</p>
+
+<br/>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg btn-add-category" data-toggle="modal" data-target="#myModal">
+            @Localization.Company.ButtonAddCategory
+        </button>
+    </div>
+</div>
+
+
+
+
+<br/>
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>@Localization.Company.CategoryName</th>
+                    <th>@Localization.Company.LabelAction</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.CurrentCategories.Count; i++) {
+                    int index = i+1;
+                    <tr>
+                        <th scope="row">@index</th>
+                        <td>@Model.CurrentCategories.ElementAt(i).Name</td>
+                        <td>
+                            <input type="button" itemid="@Model.CurrentCategories.ElementAt(i).Id"
+                                   class="btn btn-danger" value="@Localization.Company.ButtonRemoveCategory" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add category</h4>
+                <p>Choose the category you want your company to be placed in.</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-root-categories">
+                    <ul>
+                        @foreach (var root in Model.RootCategories)
+                        {
+                            <li itemid="@root.Id">
+                                <span aria-hidden="true" class="glyphicon @root.Icon"></span>
+                                <span class="glyphicon-class">@root.Name</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="modal-categories">
+                    <ul>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        if (@Model.CurrentCategories.Count >= 6) {
+            $('.btn-add-category').hide();
+        }
+
+        $(".modal-root-categories li").click(function() {
+            $.ajax({
+                url: '@Url.Action("GetSubCategories", "CompanyProfile")',
+                type: "POST",
+                dataType: 'json',
+                data: { rootId: $(this).attr("itemid") }
+            }).done(function (data) {
+                $(".modal-categories ul").html(data["html"]);
+                $(".modal-root-categories").hide();
+            });
+        });
+
+
+        // Remove category button click
+        $('.table-striped').on('click', '.btn-danger', function () {
+            $.ajax({
+                url: '@Url.Action("RemoveCategoryFromCompany", "CompanyProfile")',
+                type: "POST",
+                dataType: 'json',
+                data: { categoryId: $(this).attr("itemid") }
+            }).done(function (data) {
+                $('.table-striped tbody').html(data['html']);
+                if (data['count'] < 6) {
+                    $('.btn-add-category').show();
+                }
+            });
+
+        });
+
+
+        $(".modal-categories").on("click", "li", function () {
+            $(".modal-categories li").removeClass("active");
+            $(this).addClass("active");
+            $('#myModal .btn-primary').show();
+        });
+
+        // Modal Events
+        $('#myModal').on('click', '.btn-primary', function() {
+            // add category to company
+            
+                $.ajax({
+                    url: '@Url.Action("UpdateCompanyCategories", "CompanyProfile")',
+                    type: "POST",
+                    dataType: 'json',
+                    data: { categoryId: $(".modal-categories li.active").attr("itemid") }
+                }).always(function (data) {
+                    window.location.reload();
+                });
+            
+        });
+        
+        $('#myModal').on('show.bs.modal', function (e) {
+            // do something...
+            $(this).find(".btn-primary").hide();
+
+        });
+        $('#myModal').on('hidden.bs.modal', function(e) {
+            // do something...
+            $(".modal-categories ul").html("");
+            $(".modal-root-categories").show();
+        });
+    });
+</script>

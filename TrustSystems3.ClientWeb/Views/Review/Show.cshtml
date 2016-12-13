@@ -1,0 +1,55 @@
+﻿@using System.Configuration
+@using TrustSystems3.ClientWeb.Utils
+@model TrustSystems3.ClientWeb.Models.Base.ReviewModel
+@{
+    ViewBag.Title = "Review";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@Html.Raw(TagBuilderHelper.GetCompanyLink(Model.Review.Companies)) reviewed by
+            @Html.Raw(TagBuilderHelper.GetUserLink(Model.User))</h2>
+    </div>
+</div>
+
+<div class="row show-review">
+    <div class="col-md-3 text-center">
+        <div class="ava">
+            <img alt="140x140" width="180" class="img-circle" src="@Model.UserAvatar" 
+                 data-holder-rendered="true"/>
+        </div>
+        <h3>@Html.Raw(TagBuilderHelper.GetUserLink(Model.User))</h3>
+        <p>@Model.UserReviewsCount Reviews</p>
+    </div>
+    <div class="col-md-9">
+        <div class="clearfix">
+            <ul class="rate pull-left">
+                @for (int j = 0; j < Model.Review.Rating; j++) {
+                    <li><a href="javascript:void(0);"></a></li>
+                }
+            </ul>
+            @if (Model.Review.DatePublished.HasValue) {
+                <p class="pull-right">Published @Model.Review.DatePublished.Value.ToString("d")</p>
+            }
+        </div>
+
+        <h2>@Model.Review.ReviewShort</h2>
+        <br/>
+        <div class="review-text">
+            @Model.Review.ReviewFull
+        </div>
+        <div class="review-comments">
+            <!-- Put this div tag to the place, where the Comments block will be -->
+            <div id="vk_comments"></div>
+            <script type="text/javascript">
+                VK.Widgets.Comments("vk_comments", { limit: 10, width: "665", attach: "*" });
+            </script>
+
+
+            <div class="fb-comments"
+                 data-href="@ConfigurationManager.AppSettings["host"]/@Url.Action("Show", "Review")"
+                 data-numposts="5">
+            </div>
+        </div>
+    </div>
+</div>

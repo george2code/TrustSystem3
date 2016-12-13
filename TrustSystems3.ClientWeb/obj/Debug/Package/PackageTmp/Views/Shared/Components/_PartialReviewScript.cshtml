@@ -1,0 +1,89 @@
+﻿    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Напишите нам сообщение, и мы рассмотрим Вашу жалобу в ближайшее время!</h4>
+            </div>
+            <div class="modal-body">
+                <textarea rows="4" cols="200" class="form-control" style="max-width: 100%;"></textarea>
+                <input type="hidden" id="review-modal-id" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $(".actions .like").click(function() {
+                var reviewId = $(this).attr("itemid");
+                var like = $(this);
+                // render top companies
+                $.ajax({
+                    url: '@Url.Action("Like", "Review")',
+                    type: "POST",
+                    dataType: 'json',
+                    data: { reviewId: reviewId }
+                }).done(function (data) {
+
+                    like.find(".counter").text(data["count"]);
+                    if (data["isactive"])
+                        like.addClass("active");
+                    else
+                        like.removeClass("active");
+                });
+                // end ajax call
+            });
+
+
+            $(".actions .complaint").click(function() {
+                var reviewId = $(this).attr("itemid");
+                $("#review-modal-id").val(reviewId);
+                $(".modal-body textarea").val("");
+                $('#myModal').modal('show');
+            });
+
+            $(".modal-body textarea").focus(function() {
+                $(".modal-body textarea").css("border-color", "#ccc");
+            });
+
+            $(".modal-footer .btn-danger").click(function () {
+                if ($(".modal-body textarea").val().length > 0) {
+                    var reviewId = $("#review-modal-id").val();
+                    var msg = $(".modal-body textarea").val();
+                    // render top companies
+                    $.ajax({
+                        url: '@Url.Action("Complaint", "Review")',
+                        type: "POST",
+                        dataType: 'json',
+                        data: { reviewId: reviewId, text: msg }
+                    }).done(function (data) {
+
+                        var complaint = $("a.complaint[itemid='" + reviewId + "']");
+
+                        complaint.find(".counter").text(data["count"]);
+                        if (data["isactive"])
+                            complaint.addClass("active");
+                        else {
+                            complaint.removeClass("active");
+                            alert("Ваш комментарий по данному отзыву не был отправлен. Вы уже оставляли Ваше сообщение или попробуйте позже.");
+                        }
+
+
+//                        $(".complaint").hide();
+                        $('#myModal').modal('hide');
+                    });
+                    // end ajax call
+                } else {
+                    $(".modal-body textarea").css("border-color", "red");
+                }
+            });
+        });
+</script>

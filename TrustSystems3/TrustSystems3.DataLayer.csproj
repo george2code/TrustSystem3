@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5EF396D7-5DB6-4E77-9CC4-4BE602846A07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrustSystems3</RootNamespace>
+    <AssemblyName>TrustSystems3</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Faker.NET4">
+      <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Afs.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cities.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Companies.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyBox.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyBoxType.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyUsers.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryType.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CompanyRaiting.cs" />
+    <Compile Include="InivationStatusType.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invitation.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InviteFrequencyType.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogType.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\MySeedData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AfsRepository.cs" />
+    <Compile Include="Repository\CompanyBoxRepository.cs" />
+    <Compile Include="Repository\CompanyRepository.cs" />
+    <Compile Include="Repository\CompanyUserRepository.cs" />
+    <Compile Include="Repository\ContactRepository.cs" />
+    <Compile Include="Repository\Infrastructure\BaseRepository.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\Infrastructure\Contract\IBaseRepository.cs" />
+    <Compile Include="Repository\Infrastructure\Contract\IUnitOfWork.cs" />
+    <Compile Include="Repository\Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Repository\InvitationRepository.cs" />
+    <Compile Include="Repository\LoggerRepository.cs" />
+    <Compile Include="Repository\ReviewLikeRepository.cs" />
+    <Compile Include="Repository\ReviewRepository.cs" />
+    <Compile Include="Repository\RootCategoryRepository.cs" />
+    <Compile Include="Repository\TemplateRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Review.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewComment.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewLike.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewUsefull.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewWarning.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewWarningRepository.cs" />
+    <Compile Include="RootCategory.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Template.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UserStateType.cs">
+      <DependentUpon>TSModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="TSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="TSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TSModel.Context.cs</LastGenOutput>
+      <DependentUpon>TSModel.edmx</DependentUpon>
+    </None>
+    <None Include="TSModel.edmx.diagram">
+      <DependentUpon>TSModel.edmx</DependentUpon>
+    </None>
+    <None Include="TSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TSModel.cs</LastGenOutput>
+      <DependentUpon>TSModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TSModel.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

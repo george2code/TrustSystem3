@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48144177cf754278ab151a616000ca93" Name="Diagram1" ZoomLevel="82" >
+        <EntityTypeShape EntityType="TSModel.Cities" Width="1.5" PointX="2.875" PointY="0.625" />
+        <EntityTypeShape EntityType="TSModel.Companies" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="TSModel.CompanyUsers" Width="1.5" PointX="0.5" PointY="3.625" />
+        <EntityTypeShape EntityType="TSModel.Contacts" Width="1.5" PointX="0.75" PointY="0.5" />
+        <AssociationConnector Association="TSModel.FK_ContactCity" />
+        <AssociationConnector Association="TSModel.FK_CompanyCompanyUser" />
+        <EntityTypeShape EntityType="TSModel.AspNetRoles" Width="1.5" PointX="8.375" PointY="0.5" />
+        <EntityTypeShape EntityType="TSModel.AspNetUserClaims" Width="1.5" PointX="10.25" PointY="0.625" />
+        <EntityTypeShape EntityType="TSModel.AspNetUsers" Width="1.5" PointX="11" PointY="3.5" />
+        <AssociationConnector Association="TSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="TSModel.Category" Width="1.5" PointX="0.5" PointY="6.25" />
+        <AssociationConnector Association="TSModel.CompanyCategory" />
+        <EntityTypeShape EntityType="TSModel.Review" Width="1.5" PointX="5.5" PointY="5.625" />
+        <AssociationConnector Association="TSModel.FK_CompanyReview" />
+        <EntityTypeShape EntityType="TSModel.AspNetUserLogins" Width="1.5" PointX="12.375" PointY="0.5" />
+        <AssociationConnector Association="TSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="TSModel.ReviewComment" Width="1.5" PointX="7.625" PointY="7.25" />
+        <AssociationConnector Association="TSModel.ReviewReviewComment" />
+        <EntityTypeShape EntityType="TSModel.ReviewUsefull" Width="1.5" PointX="7.75" PointY="5" />
+        <AssociationConnector Association="TSModel.ReviewReviewUsefull" />
+        <EntityTypeShape EntityType="TSModel.RootCategory" Width="1.5" PointX="0.625" PointY="9.375" />
+        <AssociationConnector Association="TSModel.RootCategoryCategory" />
+        <AssociationConnector Association="TSModel.AspNetUserRoles1" />
+        <EntityTypeShape EntityType="TSModel.Invitation" Width="1.5" PointX="3.25" PointY="10.625" />
+        <AssociationConnector Association="TSModel.CompaniesInvitation" />
+        <EntityTypeShape EntityType="TSModel.Afs" Width="1.5" PointX="6.125" PointY="10.875" />
+        <AssociationConnector Association="TSModel.AfsCompanies" />
+        <EntityTypeShape EntityType="TSModel.Template" Width="1.5" PointX="8.25" PointY="11" />
+        <AssociationConnector Association="TSModel.AfsTemplate" />
+        <EntityTypeShape EntityType="TSModel.Logger" Width="1.5" PointX="5.875" PointY="1.5" />
+      </Diagram>
+      <Diagram DiagramId="47a89897dcbe4ba6a59cf5e44ca76176" Name="ReviewDiagram" >
+        <EntityTypeShape EntityType="TSModel.Review" Width="1.5" PointX="2.5" PointY="1" />
+        <EntityTypeShape EntityType="TSModel.ReviewComment" Width="1.625" PointX="0.5" PointY="1.25" />
+        <AssociationConnector Association="TSModel.ReviewReviewComment" />
+        <EntityTypeShape EntityType="TSModel.RootCategory" Width="1.5" PointX="10" PointY="3.75" />
+        <EntityTypeShape EntityType="TSModel.Category" Width="1.875" PointX="7.625" PointY="3.5" />
+        <AssociationConnector Association="TSModel.RootCategoryCategory" />
+        <EntityTypeShape EntityType="TSModel.ReviewUsefull" Width="1.5" PointX="2.5" PointY="5.625" />
+        <AssociationConnector Association="TSModel.ReviewReviewUsefull" />
+        <EntityTypeShape EntityType="TSModel.ReviewLike" Width="1.5" PointX="5.125" PointY="1" />
+        <EntityTypeShape EntityType="TSModel.ReviewWarning" Width="1.5" PointX="5.125" PointY="3.5" />
+        <AssociationConnector Association="TSModel.ReviewReviewLike" />
+        <AssociationConnector Association="TSModel.ReviewReviewWarning" />
+        </Diagram>
+      <Diagram DiagramId="dee440d78ffa483c8dd6f593f15aa9a1" Name="Company" >
+        <EntityTypeShape EntityType="TSModel.Companies" Width="1.5" PointX="5.625" PointY="1" />
+        <EntityTypeShape EntityType="TSModel.CompanyUsers" Width="1.5" PointX="8.125" PointY="0.875" />
+        <AssociationConnector Association="TSModel.FK_CompanyCompanyUser" />
+        <EntityTypeShape EntityType="TSModel.Invitation" Width="1.5" PointX="8.125" PointY="3.25" />
+        <AssociationConnector Association="TSModel.CompaniesInvitation" />
+        <EntityTypeShape EntityType="TSModel.Template" Width="1.5" PointX="12.375" PointY="1.25" />
+        <EntityTypeShape EntityType="TSModel.Afs" Width="1.5" PointX="10.25" PointY="2.75" />
+        <AssociationConnector Association="TSModel.AfsCompanies" />
+        <AssociationConnector Association="TSModel.AfsTemplate" />
+        <EntityTypeShape EntityType="TSModel.CompanyBox" Width="1.5" PointX="3" PointY="2.625" />
+        <AssociationConnector Association="TSModel.CompaniesCompanyBox" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

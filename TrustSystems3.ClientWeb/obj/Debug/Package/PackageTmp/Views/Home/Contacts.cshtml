@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Contacts";
+}
+
+<div class="unify">
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">@ViewBag.Title</h1>
+            <ul class="pull-right breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="active">@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container content">
+        <div class="row margin-bottom-60">
+            <div class="col-md-6 col-sm-6">
+                <!-- Google Map -->
+                <div id="map" class="height-450">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.47123207786!2d-121.47780440000004!3d38.568994899999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ad0e6ab836b57%3A0xff6c783d2d6175ca!2sFUEL+Creative+Group%2C+Inc!5e0!3m2!1sru!2sua!4v1437241859853"
+                            height="450" style="width: 100%;" frameborder="0" style="border: 0" allowfullscreen></iframe>
+                </div>
+                <!-- End Google Map -->
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <!-- Get in Touch -->
+                <h3>Get in Touch</h3>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem</p>
+                <hr>
+                <!-- Contacts -->
+                <h3>The Office</h3>
+                <ul class="list-unstyled who">
+                    <li><a href="#"><i class="fa fa-home"></i>5B Streat, City 50987 New Town US</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i>info@example.com</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i>1(222) 5x86 x97x</a></li>
+                    <li><a href="#"><i class="fa fa-globe"></i>http://www.example.com</a></li>
+                </ul>
+                <hr>
+
+                <!-- Business Hours -->
+                <h3>Business Hours</h3>
+                <ul class="list-unstyled">
+                    <li><strong>Monday-Friday:</strong> 10am to 8pm</li>
+                    <li><strong>Saturday:</strong> 11am to 3pm</li>
+                    <li><strong>Sunday:</strong> Closed</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

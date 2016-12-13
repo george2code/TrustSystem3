@@ -1,0 +1,183 @@
+﻿@model TrustSystems3.ClientWeb.Models.EvaluateReviewModel
+@{
+    ViewBag.Title = "Rate company";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="title">Выскажите свое мнение! Поделитесь Вашим отзывом о @Model.Company.Name прямо сейчас. </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="evaluate">
+            <h3>Рейтинг</h3>
+
+            @using (@Html.BeginForm("Evaluate", "Review", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="star-rating clearfix">
+                            <p tabindex="10" class="biz" id="starevaluationbutton">
+                                <a class="starbutton" tabindex="20" href="#"></a>
+                                <a class="starbutton" tabindex="21" href="#"></a>
+                                <a class="starbutton" tabindex="22" href="#"></a>
+                                <a class="starbutton" tabindex="23" href="#"></a>
+                                <a class="starbutton" tabindex="24" href="#"></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-pull-1">
+                        <p class="desc">Наведите курсор на звезды и нажмите, чтобы проголосовать</p>
+                        @Html.ValidationMessageFor(model => model.Rating)
+                    </div>
+                </div>
+                <!-- rate stars -->
+
+                <div class="evaluate_form row">
+                    <div class="col-md-12">
+                        @Html.HiddenFor(m => m.Rating, new { id = "hfStars" })
+
+                        @if (Model.Company.IsOrderRequired)
+                        {
+                        <div class="block">
+                            <h3>Введите ID заказа</h3>
+                            <p>
+                                Пожалуйста, введите ID заказа (заказов), прежде чем оставить
+                                Ваш отзыв о Thelogocompany. ID заказа помогает Thelogocompany
+                                распознать Вас, благодаря чему компании становиться легче
+                                ответить Вам на Ваш отзыв.
+                            </p>
+                            @Html.TextBoxFor(model => model.OrderId, new { @class = "form-control", 
+                                @placeholder = "Если у Вас есть чек, введите номер." })
+                            @Html.ValidationMessage("OrderIdError")
+                        </div>
+                        }
+
+                        @Html.LabelFor(model => model.ReviewTitle):<br />
+                        @Html.TextBoxFor(model => model.ReviewTitle, new { @class = "form-control", 
+                            placeholder = "Напишите ваше мнение одним предложением." })
+                        @Html.ValidationMessageFor(model => model.ReviewTitle)
+
+
+                        @Html.LabelFor(model => model.ReviewDescription):<br />
+                        @Html.TextAreaFor(model => model.ReviewDescription, new
+                        {
+                            rows = "6", cols = "40", 
+                            @class = "form-control",
+                            @placeholder = "Поделитесь вашим опытом и помогите другим сделать правильный выбор."
+                        })
+                        @Html.ValidationMessageFor(model => model.ReviewDescription)
+
+                        <br/>
+
+
+                            <input type="submit" class="btn btn-primary btn-lg" value="Опубликовать Ваш отзыв"/>
+
+
+                            <!-- Login section -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-muted">* Вы можете оставить отзыв, если Вам пришло письмо с кодом</p>
+                                    @if (!Model.Company.IsOrderRequired)
+                                    {
+                                        <p class="text-muted">* или Вам необходимо залогиниться, чтобы оставить отзыв</p>
+                                    }
+                                    <br/>
+                                </div>
+                            </div>
+                            @if (!Model.Company.IsOrderRequired && !Request.IsAuthenticated)
+                            {
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <a href="javascript:void(0);" class="btn btn-info btn-lg">Vkontakte</a>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        @Html.ActionLink("E-mail login", "Login", "Account", null, new { @class = "btn btn-warning btn-lg" })
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <a href="javascript:void(0);" class="btn btn-primary btn-lg">Facebook</a>
+                                    </div>
+                                </div>
+                            }
+                            <!-- end Login section -->
+
+                    </div>
+                </div>
+                <!-- evaluate_form -->
+            }
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <h3 class="text-info">Что такое Trustpilot?</h3>
+        <p>
+            Trustpilot это независимое сообщество отзывов. Мы помогаем потребителям по всему миру находить компании,
+            которым можно доверять.
+        </p>
+        <h3 class="text-info">Делитесь вашими впечатлениями</h3>
+        <p>
+            и будьте частью нашего сообщества. Нет ничего проще - с аккаунтом Trustpilot Вы можете писать, редактировать
+            и делиться отзывами в одном удобном месте.
+        </p>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function ()
+    {
+        $(".starbutton").mouseover(function() {
+            var indx = $(this).index(".starbutton");
+            var bizDiv = $(this).parent();
+            checkRating(indx + 1, bizDiv);
+        });
+
+        $(".starbutton").mouseout(function() {
+            if ($("#hfStars").val() == 0) {
+                $(this).parent().removeAttr("class");
+                $(this).parent().addClass("biz");
+            } else {
+                checkRating($("#hfStars").val(), $(this).parent());
+            }
+        });
+
+        $(".starbutton").click(function(event) {
+            event.preventDefault();
+            var indx = $(this).index(".starbutton");
+            $("#hfStars").val(indx + 1);
+        });
+
+    });
+
+
+    function checkRating(indx, bizDiv) {
+        if (indx == 1) {
+            bizDiv.removeAttr('class');
+            bizDiv.addClass('bia');
+            $("p.desc").text('1 star: Very bad – unacceptable experience, unreasonable and rude conduct.');
+        }
+        if (indx == 2) {
+            bizDiv.removeAttr('class');
+            bizDiv.addClass('bic');
+            $("p.desc").text('2 stars: Bad – a bad experience but with no sign of malicious intent.');
+        }
+        if (indx == 3) {
+            bizDiv.removeAttr('class');
+            bizDiv.addClass('bie');
+            $("p.desc").text('3 stars: So-so  – acceptable experience but with some friction.');
+        }
+        if (indx == 4) {
+            bizDiv.removeAttr('class');
+            bizDiv.addClass('big');
+            $("p.desc").text('4 stars: Good – decent treatment and very little friction.');
+        }
+        if (indx == 5) {
+            bizDiv.removeAttr('class');
+            bizDiv.addClass('bii');
+            $("p.desc").text('5 stars: Perfect – no reservations, I would recommend this company to anyone.');
+        }
+    }
+</script>

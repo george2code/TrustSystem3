@@ -1,0 +1,150 @@
+﻿@using TrustSystems3.CompanyWeb.Helpers
+@using TrustSystems3.CompanyWeb.Utils
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@PagesHelper.GetBusinessTitle(ViewBag.Title)</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700italic,700'
+          rel='stylesheet'
+          type='text/css'>
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.icon-large.min.css")" type="text/css" />
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/all.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/business.css")" type="text/css" />
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="header">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("TrustSystem business", "Index", "Home", null, new { @class = "navbar-brand" })
+                    </div>
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <div class="navbar-right user-welcome">
+                                <p>@Localization.Company.MenuWelcome, @Html.ActionLink(User.Identity.Name, "Index", "Dashboard", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</p>
+                                <ul>
+                                    <li><a href="#">@Localization.Company.MenuMyProfile</a></li>
+                                    <li>|</li>
+                                    <li><a href="#">@Localization.Company.MenuAccountSettings</a></li>
+                                    <li>|</li>
+                                    <li>
+                                        @using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new {id = "logoutForm"})) {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()">@Localization.Company.MenuSignout</a>
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <ul class="top-login-links navbar-right">
+                                <li><a href="#" class="btn btn-primary">for Clients</a></li>
+                                <li>@Html.ActionLink("Login", "Login", "Home", null, new { @class = "btn btn-warning" })</li>
+                            </ul>
+                        }
+                        <ul class="top-navigation navbar-right">
+                            <li>@Html.MenuLink("Home", "Index", "Home")</li>
+                            <li>@Html.MenuLinkController("Product", "Review", "Product")</li>
+                            <li>@Html.MenuLink("Pricing", "Pricing", "Home")</li>
+                            <li>@Html.MenuLink("Why Us", "Whyus", "Home")</li>
+                            <li>@Html.MenuLinkController("Resources", "All", "Resources")</li>
+                        </ul>
+                    </div><!--/.navbar-collapse -->
+                </div>
+            </nav>
+
+            <div class="sub-menu">
+                @Html.Partial("Partial/_PartialSubmenu")
+            </div>
+        </div><!-- header -->
+
+
+        <div id="main">
+@*            <% flash.each do |message_type, message| %>*@
+@*            <div class="alert alert-<%= message_type %>"><%= message %></div>*@
+@*            <% end %>*@
+
+            @RenderBody()
+
+            <!-- Boxes -->
+            <div class="row">
+                <div class="col-md-6 request-orange">
+                    <div class="col-md-5">
+                        <img src="@Url.Content("~/images/rocket.png")" class="pull-right" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <h4>LET’S GET ROLLING...</h4>
+                        <p>...with a FREE trial</p>
+                        <ul>
+                            <li>Invite up to 300 customers to rate you</li>
+                            <li>Monitor and respond to what they say</li>
+                            <li>Then show the results on your website!</li>
+                            <li>And watch your Google Seller Rating climb</li>
+                        </ul>
+                        <p>
+                            @Html.ActionLink("Sign Up", "Signup", "Home", null, 
+                                new { @class = "btn btn-primary btn-lg", title = "Get started" })
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 boxes">
+                    <div class="request-callback">
+                        <div class="col-md-2">
+                            <img src="@Url.Content("~/images/tea-icon.png")" class="pull-right" alt="">
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Request a call back</h4>
+                            <p>Sounds great, right? Then chat with one of our team members.</p>
+                            <p><a href="/get-started/request-callback" 
+                                  title="get started" class="btn btn-primary btn-lg">Request a call back</a></p>
+                        </div>
+                    </div>
+                    <div class="request-demo">
+                        <div class="col-md-2">
+                            <img src="@Url.Content("~/images/control-stick.png")" class="pull-right" alt="">
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Request a demo</h4>
+                            <p>Sit back and let us be the pilot (for a while, anyway).</p>
+                            <p><a href="/get-started/request-demo" title="get started" 
+                                  class="btn btn-primary btn-lg">Request a demo</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- main -->
+    </div><!-- wrap -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li role="presentation">@Html.ActionLink("About company", "About", "Page")</li>
+                <li role="presentation">@Html.ActionLink("F.A.Q.", "Faq", "Page")</li>
+                <li role="presentation">@Html.ActionLink("Contacts", "Contacts", "Page")</li>
+                <li role="presentation">@Html.ActionLink("Blog", "Blog", "Page")</li>
+                <li role="presentation">@Html.ActionLink("Conditions", "Conditions", "Page")</li>
+                <li role="presentation">@Html.ActionLink("Confidential Politic", "ConfidentialPolitic", "Page")</li>
+                <li role="presentation">@Html.ActionLink("Business Solutions", "BusinessSolutions", "Page")</li>
+            </ul>
+        </div>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

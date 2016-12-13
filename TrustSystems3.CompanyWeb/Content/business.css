@@ -1,0 +1,465 @@
+﻿/*
+Sticky Footer Solution
+by Steve Hatcher
+http://stever.ca
+http://www.cssstickyfooter.com
+*/
+
+* {margin:0;padding:0;}
+
+/* must declare 0 margins on everything, also for main layout components use padding, not
+vertical margins (top and bottom) to add spacing, else those margins get added to total height
+and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
+
+html, body {height: 100%;}
+
+#wrap {min-height: 100%;}
+
+#main {overflow:auto;
+  padding-bottom: 86px;}  /* must be same height as the footer */
+
+#footer {position: relative;
+  margin-top: -100px; /* negative value of footer height */
+  height: 100px;
+  clear:both;}
+
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+
+/* IMPORTANT
+
+You also need to include this conditional style in the <head> of your HTML file to feed this style to IE 6 and lower and 8 and higher.
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrap {display:table;height:100%}
+	</style>
+<![endif]-->
+
+*/
+
+a, .nav a {text-decoration: none;}
+
+
+.no-pd-right {padding-right: 0;}
+
+
+
+.hp-tour-title {padding: 40px 2% 60px 2%;}
+.hp-tour-title p {color: #555; font-size: 18px;}
+
+
+.navbar-header .navbar-brand {
+  background: url("/images/ico_star2.png") no-repeat 0 center;
+  width: 415px;
+    color: #fff;
+    padding-left: 55px;
+   
+}
+
+
+.home-circles {margin-bottom: 20px;}
+.home-circles .text {background: none repeat scroll 0 0 #fff; padding: 20px 2%; position: relative; z-index: 1;}
+.home-circles h3 {font-size: 20px;}
+.home-circles p {color: #1c424f; font-size: 12px;}
+
+
+.hp-spotlights {
+  background: url("/images/home/in-the-spotlight.jpg") no-repeat scroll 0 0 / cover rgba(0, 0, 0, 0);
+  width: 100%;
+}
+.hp-spotlights .content {margin: 0 auto; max-width: 1200px; padding: 40px 2%;}
+.hp-spotlights h2 {font-size: 4.4em;}
+.hp-spotlights p {font-size: 18px;}
+.hp-spotlights h2, .hp-spotlights p {color: #fff; text-align: center;}
+.hp-spotlights a {margin-top: 40px;}
+
+
+
+#customer-reviews {
+  padding: 54px 6%;
+  text-align: center;
+}
+.customer-stat {
+  background: none repeat scroll 0 0 #1c424f;
+  padding: 19px 7% 17px;
+}
+#customer-reviews .stat-figure {
+  font-family: "HelveticaNeueW01-65Medi";
+  font-size: 58px;
+  line-height: 100px;
+  text-transform: uppercase;
+  color: #f0daca;
+}
+
+.customer-stat .stat-title {
+  color: #919496;
+  display: block;
+  font-family: "HelveticaNeueW01-75Bold";
+  font-size: 18px;
+}
+
+.customer-stat .stat-figure {
+  color: #f0daca;
+  font-size: 4em;
+}
+
+
+#business-users {
+  margin-bottom: 14px;
+}
+#business-users .sub-stat {
+  color: #f0daca;
+  font-size: 1.8em;
+}
+#business-users .stat-title {
+  font-size: 14px;
+}
+
+#customer-stat-countries {overflow: hidden;}
+
+#customer-stat-countries .stat-figure {
+  color: #f0daca;
+  font-size: 4em;
+}
+#customer-stat-countries .stat-figure, #customer-stat-countries .stat-title {
+  float: left;
+}
+#customer-stat-countries .stat-title {
+  display: block;
+  margin: 30px 0 0 6%;
+}
+
+
+.video-inner {background-color: deepskyblue; padding: 20px 0 40px 0;}
+.video-inner h2, .video-inner p {color: #fff;}
+
+.statistics-testimonials {margin: 35px 0;}
+
+.hp-testimonial {
+  margin-bottom: 35px;
+}
+.hp-testimonial-tx p {
+  color: #fff;
+  font-family: Arial,"Helvetica Neue",Helvetica,Gotham,sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.customer-name {
+  color: #fff;
+  font-family: Arial,"Helvetica Neue",Helvetica,Gotham,sans-serif;
+  font-size: 1.35em;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.alert { font-size: 14px;}
+
+.top-navigation {margin: 15px 0 0 0;}
+.top-navigation li {float: left; margin-right: 20px;}
+.top-navigation li a {color: #fff; text-decoration: none;font-size: 14px;}
+.top-navigation li a.active {text-decoration: underline;}
+
+.sub-menu li a.active {
+  background-color: #e7e7e7;
+  color: #555;
+}
+
+
+/* BOXES */
+.request-orange { background: none repeat scroll 0 0 #e78125; min-height: 564px; padding: 66px 0 65px 0;}
+.request-orange h4 {color: #fff; font-size: 3.8em;}
+.request-orange p { color: #fff;
+  font-size: 2em;
+  line-height: 31px;}
+.request-orange ul {
+  font-family: "HelveticaNeueW01-45Ligh";
+  margin: 35px 0;
+  width: 320px;
+}
+.request-orange li {
+  background: url("/images/trial-list-arrows.png") no-repeat scroll 0 3px rgba(0, 0, 0, 0);
+  color: #fff;
+  font-family: "HelveticaNeueW01-65Medi";
+  font-size: 19px;
+  line-height: 24px;
+  margin-bottom: 13px;
+  padding-left: 15px;
+}
+
+.boxes {padding: 0;}
+
+.request-callback {background-color: #ebebeb;}
+.request-demo {background-color: #c2c2c2;}
+
+.request-callback h4,
+.request-demo h4 {
+  color: #1c424f;
+  font-size: 2.6em;
+}
+.request-callback p,
+.request-demo p {
+  color: #555;
+}
+.request-callback a,
+.request-demo a {
+  padding: 12px 6%;
+  margin-top: 40px;
+}
+
+.request-callback,
+.request-demo {
+  overflow: hidden;
+  padding: 54px 0;
+}
+/* END BOXES */
+
+
+h3.green-badge {
+  background: url('/images/green-badge.png') no-repeat;
+  padding-left: 50px;
+  line-height: 40px;
+  height: 41px;
+}
+
+.tables-reasons {
+  margin: 10px 0 20px 0;
+}
+
+
+
+
+
+.pricing-table {margin: 30px 0;}
+.pricing-header h1.title {
+  margin-bottom: 10px;
+}
+
+.ts-info p {font-size: 12px;}
+.ts-info h4 {font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;}
+
+
+/* PRICING */
+.pricing-table .panel
+{
+  text-align: center;
+}
+.pricing-table .panel:hover { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35); }
+.pricing-table .panel-body
+{
+  padding: 0px;
+  text-align: center;
+}
+.pricing-table .panel-heading .panel-title {
+  color: #fff;
+}
+.pricing-table .panel-success > .panel-heading .panel-title {
+  color: #468847;
+}
+.pricing-table .panel-info > .panel-heading .panel-title {
+   color: #3a87ad;
+ }
+.pricing-table .panel-danger > .panel-heading .panel-title {
+  color: darkred;
+}
+.the-price
+{
+  background-color: rgba(220,220,220,.17);
+  box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+  padding: 20px;
+  margin: 0;
+}
+
+.the-price h1
+{
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.subscript
+{
+  font-size: 25px;
+}
+
+/* CSS-only ribbon styles    */
+.cnrflash
+{
+  /*Position correctly within container*/
+  position: absolute;
+  top: -9px;
+  right: 4px;
+  z-index: 1; /*Set overflow to hidden, to mask inner square*/
+  overflow: hidden; /*Set size and add subtle rounding  		to soften edges*/
+  width: 100px;
+  height: 100px;
+  border-radius: 3px 5px 3px 0;
+}
+.cnrflash-inner
+{
+  /*Set position, make larger then
+  container and rotate 45 degrees*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 145px;
+  height: 145px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -o-transform: rotate(45deg); /* Opera */
+  -moz-transform: rotate(45deg); /* Firefox */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
+  -webkit-transform-origin: 100% 100%; /*Purely decorative effects to add texture and stuff*/ /* Safari and Chrome */
+  -ms-transform-origin: 100% 100%;  /* IE 9 */
+  -o-transform-origin: 100% 100%; /* Opera */
+  -moz-transform-origin: 100% 100%; /* Firefox */
+  background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1,1,1,.2) 50%);
+  background-size: 4px,auto, auto,auto;
+  background-color: #aa0101;
+  box-shadow: 0 3px 3px 0 rgba(1,1,1,.5), 0 1px 0 0 rgba(1,1,1,.5), inset 0 -1px 8px 0 rgba(255,255,255,.3), inset 0 -1px 0 0 rgba(255,255,255,.2);
+}
+.cnrflash-inner:before, .cnrflash-inner:after
+{
+  /*Use the border triangle trick to make
+  it look like the ribbon wraps round it's
+  container*/
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: -16px;
+  width: 0;
+  height: 0;
+  border: 8px solid #800000;
+}
+.cnrflash-inner:before
+{
+  left: 1px;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+.cnrflash-inner:after
+{
+  right: 0;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.cnrflash-label
+{
+  /*Make the label look nice*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding-bottom: 5px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(1,1,1,.8);
+  font-size: 0.95em;
+  font-weight: bold;
+  text-align: center;
+}
+/* END PRICING */
+
+
+/* REGISTRATION */
+.register-info ul li {overflow: hidden; line-height: 48px;}
+.register-info ul li .glyphicon {font-size: 42px; float: left; margin-right: 15px;}
+
+#flag li {float: left; margin-right: 10px;}
+#flag li:hover {cursor: pointer;}
+
+
+
+/* LOGIN */
+.business_login {display: inline-block; margin: 80px 0 160px 0;}
+
+
+
+.sidebar-nav .glyphicon { margin-right: 5px;}
+
+
+
+/* PRODUCT */
+.cr-product h1.title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  color: #585858;
+  margin: 30px 0 40px 0;
+}
+
+.cr-product h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #555;
+}
+
+.cr-product p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #7d7d7d;
+}
+
+.cr-product a {
+  color: #0076a3;
+}
+
+.cr-product .product-info-item {
+  background: url('/images/line1.png') repeat-x 0 100%;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.cr-product .product-info-item.last {
+  background: none;
+}
+.cr-product .product-info-item a {
+  background: url('/images/arrow-more.png') no-repeat 0 50%;
+  padding-left: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #2981a4!important;
+  line-height: 19px;
+}
+.cr-product .product-info-item a:hover {
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.cr-product .promo-collect {
+  min-height: 350px;
+  padding-bottom: 10px;
+  background: url('/images/product/promo-shadow.png') no-repeat 50% 100%;
+}
+
+.cr-product .promo-collect h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 38px;
+  text-shadow: 1px 1px 1px #000;
+  margin: 15px 0 5px 0;
+}
+.cr-product .promo-collect p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #fff;
+  font-size: 27px;
+  text-shadow: 1px 1px 1px #000;
+  margin-bottom: 30px;
+}
+
+.cr-product .promo {
+  margin-bottom: 5px;
+}
+.cr-product .promo .col-md-12 {
+  background: url('/images/product/mozaik_blue_bg.jpg') repeat-x;
+}
+/* END PRODUCT */

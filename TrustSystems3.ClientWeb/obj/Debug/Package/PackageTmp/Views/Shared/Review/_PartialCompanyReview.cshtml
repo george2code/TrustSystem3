@@ -1,0 +1,55 @@
+﻿@model TrustSystems3.ClientWeb.Models.Base.ReviewModel
+
+<div class="review">
+    <div class="row">
+        <div class="col-md-2 ava text-center">
+            <img alt="140x140" class="img-circle" src="@Model.UserAvatar" data-holder-rendered="true"/>
+        </div>
+        <div class="col-md-10 info">
+            <div class="clearfix">
+                <ul class="rate pull-left">
+                    @for (var i = 0; i < Model.Review.Rating; i++)
+                    {
+                        <li><a href="#"></a></li>
+                    }
+                </ul>
+
+                <p class="pull-right"><span class="label label-danger">@Model.Review.DatePublished.Value.ToString("dd.MM.yy / hh:mm")</span></p>
+
+            </div>
+            @if (Model.User != null)
+            {
+                <p>@Html.ActionLink(Model.User.UserName, "UserReviews", "Review", new {id = Model.User.Id}, null) | @Model.UserReviewsCount отзыв(ов)</p>
+            }
+            else
+            {
+                <p><span class="label label-info">Reviewed by Code</span></p>
+            }
+            
+            <div class="check confirm">Отзыв от подтвержденного покупателя</div>
+            <div class="actions">
+                <ul>
+                    <li><a href="/showreview/@Model.Review.Id"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Комментарии</a></li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="javascript:void(0);" itemid="@Model.Review.Id" class="like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Полезен (<span class="counter">@Model.Review.ReviewLike.Count</span>)</a></li>
+                        <li><a href="javascript:void(0);" itemid="@Model.Review.Id" class="complaint"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Пожаловаться (<span class="counter">@Model.Review.ReviewWarning.Count</span>)</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="message_panel">
+        <div class="corner"></div>
+        <div class="message">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h5>@Model.Review.ReviewShort</h5>
+                    @Model.Review.ReviewFull
+                </div>
+            </div>
+        </div><!-- End review -->
+    </div>
+</div>

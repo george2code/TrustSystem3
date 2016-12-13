@@ -1,0 +1,44 @@
+﻿@using TrustSystems3.ClientWeb.Utils
+@model TrustSystems3.ClientWeb.Models.Base.ReviewModel
+
+<h3>@Localization.Client.TitleReviewOfDay @Model.Review.Companies.Name</h3>
+<div class="panel panel-default wbg-color">
+    <div class="panel-body">
+        <div class="main-review clearfix">
+            <div class="ava pull-left text-center">
+                <img alt="" class="img-circle" src="@Model.UserAvatar" data-holder-rendered="true" />
+                <p>@Localization.Client.LabelRating:</p>
+                <ul class="rate pull-left">
+                    @for (int i = 0; i < Model.Review.Rating; i++) {
+                        <li><a href="#"></a></li>
+                    }
+                </ul>
+                <div class="clearfix"></div>
+                <p><img src="@Url.Content("~/images/flag.png")" alt="" /></p>
+            </div>
+            <div class="info pull-right">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h3>@Model.User.UserName</h3>
+                        <p>о @Html.Raw(TagBuilderHelper.GetCompanyLink(Model.Review.Companies))</p>
+                    </div>
+                    <div class="pull-right">
+                        @if (Model.Review.DatePublished.HasValue) {
+                            <p class="calendar pull-right">
+                                @Model.Review.DatePublished.Value.ToString("d") /
+                            @Model.Review.DatePublished.Value.ToString("t")
+                        </p>
+                        }    
+                    </div>
+                    
+                </div>
+                <h4>@Model.Review.ReviewShort</h4>
+                <p class="full-review">@Model.Review.ReviewFull</p>
+
+                <div class="buttons clearfix">
+                    <a class="btn btn-default pull-left" href="@UrlClientHelper.GetUserUrl(Model.User.Id)">@Localization.Client.ButtonMoreReview</a>
+                </div>
+            </div>
+        </div><!-- End main review -->
+    </div>
+</div>

@@ -1,0 +1,152 @@
+﻿@model TrustSystems3.CompanyWeb.Models.WizardAddInvitesModel
+@{
+    ViewBag.Title = "Add";
+}
+
+<h1>Invite your customers</h1>
+<div class="btn-group" role="group" aria-label="...">
+    @Html.ActionLink("Add Invites", "Add", "WizardAddInvites", null, new { @class = "btn btn-primary" })
+    <button type="button" class="btn btn-default">Send from</button>
+    <button type="button" class="btn btn-default">Select template</button>
+    <button type="button" class="btn btn-default">Done</button>
+</div>
+<h2>Type in your customer information</h2>
+<p>
+    Add your customers one by one. Simply type in the relevant info: names, email addresses and reference IDs.
+    Hit the Continue button when you're all set. We recommend you enter a maximum of 100 invitations at any
+    one time.
+</p>
+
+<div class="panel panel-info invite-add-panel">
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" value="" class="form-control add_email" placeholder="Email (required)"/>
+                </td>
+                <td>
+                    <input type="text" value="" class="form-control add_name" placeholder="Name (required)"/>
+                </td>
+                <td>
+                    <input type="text" value="" class="form-control add_order" placeholder="Reference ID (required)"/>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Email <label class="text-danger">*</label></th>
+        <th>Name <label class="text-danger">*</label></th>
+        <th colspan="2">Reference ID<label class="text-danger">*</label></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>mark@gmail.com</td>
+        <td>Mark Otto</td>
+        <td>w8t3wer0</td>
+        <td class="text-center"><a href="" class="glyphicon glyphicon-trash"></a></td>
+    </tr>
+    <tr>
+        <td>jacob@hotmail.com</td>
+        <td>Jacob Thornton</td>
+        <td>02348</td>
+        <td class="text-center"><a href="" class="glyphicon glyphicon-trash"></a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+@using (Html.BeginForm("Add", "WizardAddInvites", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.HiddenFor(m => m.InvitationsData)
+    <br/>
+    <a href="#" class="btn btn-danger btn_clear_all">Clear all data</a>
+    <input type="submit" name="BtnNext" class="btn btn-info btn-continue" value="Continue" />
+}
+
+
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+
+        var email = $('.add_email');
+        var name = $('.add_name');
+        var order = $('.add_order');
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+            return pattern.test(emailAddress);
+        }
+        $(email, name, order).focus(function() {
+           $(this).removeClass('error');
+        });
+        $('.invite-add-panel .btn-primary').click(function(e) {
+            e.preventDefault();
+            // client validation
+            if (email.val().length == 0 || !isValidEmailAddress(email.val())) {
+                email.addClass('error');
+            }
+            else if (name.val().length == 0) {
+                name.addClass('error');
+            }
+            else if (order.val().length == 0) {
+                order.addClass('error');
+            }
+            else {
+                var str = '<tr>';
+                str += '<td>' + email.val() + '</td>';
+                str += '<td>' + name.val() +  '</td>';
+                str += '<td>' + order.val() + '</td>';
+                str += '<td class="text-center"><a class="glyphicon glyphicon-trash" href=""></a></td>';
+                str += '</tr>';
+                $('.table tbody').append(str);
+                // clear
+                email.val('');
+                name.val('');
+                order.val('');
+            }
+        });
+        // trash
+        $(".table-striped").on("click", "a.glyphicon-trash", function (e) {
+            e.preventDefault();
+            $(this).parent().parent().remove();
+        });
+        // clear all
+        $('.btn_clear_all').click(function(e){
+            e.preventDefault();
+            $('.table tbody tr').remove();
+        });
+        // Continue
+        $('.btn-continue').click(function(e) {
+            if ($('.table tbody tr').length == 0) {
+                e.preventDefault();
+                alert('Нет приглашений, добавьте хотя бы одно, чтобы продолжить!');
+            }
+            else {
+                var str = "";
+                // build string
+                $('.table tbody tr').each(function(i) {
+                    $(this).find('td:not(:last-child)').each(function(i) {
+                        str += $(this).text();
+                        if (i < 2)
+                            str += ',';
+                    });
+                    str += '\n';
+                });
+                // ajax, post invite strings
+                if (str.length > 0) {
+                    $('#InvitationsData').val(str);
+                }
+            }
+        });
+    });
+</script>
